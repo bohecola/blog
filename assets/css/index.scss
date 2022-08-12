@@ -1,0 +1,50 @@
+@import './theme.scss';
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
+*::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: rgba(144, 147, 153, 0.3);
+  border-radius: 3px;
+}
+
+*::-webkit-scrollbar-track {
+ background: transparent;
+}
+
+#app {
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+}
+
+:root {
+  --view-bg-color: #f7f7f7;
+}
+
+a {
+  text-decoration: none;
+}
+
+input,
+button {
+  outline: none;
+}
+
+input {
+  &:-webkit-autofill {
+    box-shadow: 0 0 0px 1000px white inset;
+  }
+}
+
+img, video {
+  max-width: 100%;
+  height: auto;
+}

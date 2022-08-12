@@ -1,0 +1,17 @@
+{
+  "private": true,
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev --port 9527",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview"
+  },
+  "devDependencies": {
+    "@iconify-json/carbon": "^1.1.7",
+    "@iconify-json/la": "^1.1.2",
+    "@nuxtjs/color-mode": "^3.1.4",
+    "@unocss/nuxt": "^0.45.5",
+    "nuxt": "3.0.0-rc.6",
+    "sass": "^1.54.4"
+  }
+}
