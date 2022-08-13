@@ -36,17 +36,42 @@
 </template>
 
 <script lang="ts" setup>
+import NProgress from "nprogress";
+import "nprogress/nprogress.css"
+
+NProgress.configure({ 
+  showSpinner: false
+});
+
 // 路由
 const route = useRoute();
 
-// 上级路径
+// 路由器
+const router = useRouter();
+
+// 返回路径
 const backTo = ref('');
 
 // 监听路由变化
-watch(route, (val) => {
-  const upperPath = val.path.substring(0, val.path.lastIndexOf('/'));
-  backTo.value = upperPath ? upperPath : '/';  
-}, { immediate: true })
+watch(
+  route, 
+  (val) => {
+    // 上级路径
+    const upperPath = val.path.substring(0, val.path.lastIndexOf('/'));
+    // 返回路径
+    backTo.value = upperPath ? upperPath : '/';  
+  }, { immediate: true }
+);
+
+router.beforeEach((to, from, next) => {
+  NProgress.start();
+  next();
+});
+
+
+router.afterEach((to, from) => {
+  NProgress.done();
+});
 </script>
 
 <style lang="scss">

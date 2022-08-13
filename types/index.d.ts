@@ -19,6 +19,7 @@ export interface Post {
 export interface Category {
   id: number;
   name: string;
+  slug?: string;
   count?: number;
 }
 
@@ -26,6 +27,7 @@ export interface Category {
 export interface Tag {
   id: number;
   name: string;
+  slug?: string;
   count?: number;
 }
 

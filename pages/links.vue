@@ -1,3 +1,3 @@
 <template>
-  <h1>links.vue</h1>
+  <h1>links</h1>
 </template>

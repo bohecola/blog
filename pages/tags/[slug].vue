@@ -3,8 +3,6 @@
     {{ $route.params.name }}
     <br>
     {{ $route.params.id }}
-    <br>
-    {{ $route.params.slug }}
   </div>
 </template>
 

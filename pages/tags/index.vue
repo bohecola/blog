@@ -1,21 +1,21 @@
 <template>
-  <div class="category">
+  <div class="tag">
     <ul>
       <li 
-        v-for="category in categories"
-        :key="category.id"
+        v-for="tag in tags"
+        :key="tag.id"
         class="mb-2"
       >
         <nuxt-link
           class="opacity-60 hover:opacity-75"
           :to="{
-            name: 'categories-slug',
+            name: 'tags-slug',
             params: {
-              ...category
+              ...tag
             }
           }"
         >
-          {{ `${category.name}(${category.count})` }}
+          {{ `${tag.name}(${tag.count})` }}
         </nuxt-link>
       </li>
     </ul>
@@ -24,5 +24,5 @@
 
 <script lang="ts" setup>
 // 数据获取
-const { data: categories } = useLazyAsyncData('categories', () => $fetch('/api/categories'));
+const { data: tags } = useLazyAsyncData('tags', () => $fetch('/api/tags'));
 </script>
