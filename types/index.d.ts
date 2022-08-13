@@ -63,9 +63,12 @@ export interface PageBody {
 // 分页数据
 export interface PageData<T> {
   list: Array<T>;
-  pagination: {
-    page: number;
-    size: number;
-    total: number;
-  }
+  pagination: Pagination
+}
+
+// 分页信息
+export interface Pagination {
+  page: number;
+  size: number;
+  total: number;
 }

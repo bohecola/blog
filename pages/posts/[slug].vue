@@ -1,7 +1,9 @@
 <template>
-  <div>
+  <h1>
     page {{ $route.params.slug }} slug.vue 
-  </div>
+    <br>
+    {{ $route.params.id }}
+  </h1>
 </template>
 
 <script lang="ts" setup>

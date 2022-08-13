@@ -1,5 +1,6 @@
 <template>
   <div class="app-topbar">
+    <logo />
     <div class="spacer"></div>
     <div class="app-topbar__right">
       <template
@@ -57,6 +58,7 @@ const topbars = ref([
   grid-template-columns: auto max-content;
   box-sizing: border-box;
   line-height: 1.5rem;
+  position: relative;
 
   &__right {
     display: grid;

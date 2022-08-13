@@ -1,15 +1,13 @@
 <template>
   <nuxt-link 
-    class="
-      item
-      block
-      font-normal
-      mb-6
-      mt-2
-      no-underline
-      opacity-60
-      hover:opacity-100"
-    :to="`/posts/${post.slug}`"
+    class="item block mt-2 mb-6 font-normal opacity-60 hover:opacity-100"
+    :to="{
+      name: 'posts-slug',
+      params: {
+        slug: post.slug,
+        id: post.id
+      }
+    }"
   >
     <li class="no-underline">
       <div class="title text-lg leading-1.2em">{{ post.title }}</div>
@@ -26,11 +24,9 @@ const props = defineProps<{ post: Post }>();
 </script>
 
 <style lang="scss">
-a {
-  &.item {
-    transition: all .2s ease-in;
-    text-decoration: none;
-    border-bottom: none;
-  }
+.prose a.item {
+  transition: all .1s ease-in;
+  text-decoration: none;
+  border-bottom: none;
 }
 </style>

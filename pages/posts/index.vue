@@ -1,12 +1,14 @@
 <template>
-  <article>
-    <div class="prose m-auto">
-      <div v-if="pending">Loading...</div>
-      <post-list v-else :posts="posts" />
-      <button v-if="page < pageCount" w-10 mr-1 @click="next"> + </button>
-      <button v-if="page > 1" w-10 @click="previous"> - </button>
-    </div>
-  </article>
+  <div class="posts">
+    <div v-if="pending">Loading...</div>
+    <post-list v-else :posts="posts" />
+    <pagination
+      :page="page"
+      :size="size"
+      :total="data.pagination.total"
+      @current-change="currentChange"
+    />
+  </div>
 </template>
 
 <script lang="ts" setup>
@@ -31,34 +33,17 @@ const posts = computed(() => {
     item.createdAt = new Date(item.createdAt)
     .toDateString()
     .substring(4)
-    .replace(/(?<=\d)\u0020(?=\d)\d/g, ', ')
+    .replace(/(?<=\d)\u0020(?=\d)/g, ', ')
     return item;
-  })
+  });
 });
-
-// 总页数
-const pageCount = computed(() => Math.ceil(data.value.pagination.total / size.value));
 
 // 刷新数据
 const refresh = () => refreshNuxtData('posts');
 
-// 上一页
-function previous() {
-  page.value--;
-  refresh();
-}
-
-// 下一页
-function next() {
-  page.value++;
+// 翻页
+function currentChange(val) {
+  page.value = val;
   refresh();
 }
 </script>
-
-<style lang="scss">
-.prose {
-  ol, ul {
-    list-style-type: none;
-  }
-}
-</style>
