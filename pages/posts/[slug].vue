@@ -2,26 +2,9 @@
   <div class="post">
     <loading v-if="pending" />
     <template v-else>
+      <!-- 标题 -->
       <h1>{{ info.title }}</h1>
-      <p class="flex  items-center mt-0 opacity-60">
-        <!-- 目录 -->
-        <template v-if="info.category.name">
-          <div class="mr-1" i-carbon-catalog />
-          <nuxt-link
-            :to="`/categories/${info.category.slug}`"
-          >{{ info.category.name }}</nuxt-link>
-        </template>
-        <!-- 标签 -->
-        <template v-if="info.tags.length">
-          <div ml-2 mr-1 i-material-symbols-bookmarks-outline-rounded />
-          <nuxt-link
-            v-for="(t, i) in info.tags"
-            class="mr-2"
-            :key="t.slug"
-            :to="`/tags/${t.slug}`"
-          >{{ t.name }} <i v-if="i < info.tags.length - 1">, </i></nuxt-link>  
-        </template>
-      </p>
+      <!-- 编辑器 -->
       <md-editor
         v-model="info.content"
         editor-id="md-editor"
@@ -30,6 +13,7 @@
         preview-theme="github"
         preview-only
       />
+      <!-- 标题目录 -->
       <md-catalog
         class="custom-catalog lt-lg:hidden"
         editor-id="md-editor"
@@ -67,19 +51,23 @@ MdEditor.config({
 function onCatalogClick(e, t) {
   history.replaceState({}, '', `${location.pathname}#${t.text}`);
 }
-// 路由参数
-const { params } = useRoute();
+// 路由
+const route = useRoute();
 // 数据获取
-const { pending, data: info, refresh } = useFetch('/api/posts/info', {
+const { pending, data: info } = useLazyAsyncData('post-info', () => $fetch('/api/posts/info', {
   method: 'get',
   params: {
-    slug: params.slug
-  },
-  lazy: true
-});
+    slug: route.params.slug
+  }
+}));
+
+// 刷新数据
+const refresh = () => refreshNuxtData('post-info');
+refresh();
+
 // 页面挂载前
 onBeforeMount(() => {
-  refresh();
+  // 刷新清空 URL哈希 (临时处理)
   history.replaceState({}, '', `${location.pathname}`);
   scrollElement.value = document.documentElement;
 });

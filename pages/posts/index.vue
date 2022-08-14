@@ -3,7 +3,9 @@
     <loading v-if="pending" />
     <template v-else>
       <h1 class="mt-0 opacity-60">POST</h1>
+      <!-- 列表 -->
       <post-list :posts="posts.list" />
+      <!-- 分页 -->
       <pagination
         :page="page"
         :size="size"
@@ -18,7 +20,7 @@
 // 页数
 const page = ref(1);
 // 数量
-const size = ref(10);
+const size = ref(100);
 
 // 数据获取
 const { pending, data: posts } = useLazyAsyncData('posts', () => $fetch('/api/posts/page', {
@@ -26,13 +28,11 @@ const { pending, data: posts } = useLazyAsyncData('posts', () => $fetch('/api/po
   body: {
     page: page.value,
     size: size.value
-  }
+  },
 }));
 
 // 刷新数据
 const refresh = () => refreshNuxtData('posts');
-
-onMounted(() => refresh());
 
 // 翻页
 function currentChange(val) {

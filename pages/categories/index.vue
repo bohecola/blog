@@ -1,5 +1,6 @@
 <template>
   <div class="category">
+    <h1 class="mt-0 opacity-60">目录</h1>
     <ul>
       <li 
         v-for="category in categories"

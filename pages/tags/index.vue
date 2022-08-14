@@ -1,5 +1,6 @@
 <template>
   <div class="tag">
+    <h1 class="mt-0 opacity-60">标签</h1>
     <ul>
       <li 
         v-for="tag in tags"

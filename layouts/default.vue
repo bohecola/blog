@@ -12,10 +12,19 @@
       </article>
       <!-- 返回 -->
       <div class="prose m-auto my-8">
+        <!-- 正常回退上一层级路由 -->
         <nuxt-link
-          v-if="$route.path !== '/'"
+          v-if="$route.path !== '/' && !$route.path.includes('/posts/')"
           class="font-mono opacity-50 hover:opacity-75"
           :to="backTo">
+          cd ..
+        </nuxt-link>
+        <!-- /posts/xxx 由于from路由不明确, 所以: 回退历史记录上一级 -->
+        <nuxt-link
+          v-if="$route.path.includes('/posts/')"
+          class="font-mono opacity-50 hover:opacity-75 cursor-pointer"
+          @click="$router.go(-1)"
+        >
           cd ..
         </nuxt-link>
       </div>
@@ -51,25 +60,8 @@ watch(
   (newVal, oldVal) => {
     // 上级路径
     const upperPath = newVal.substring(0, newVal.lastIndexOf('/')) || '/';
+    // 返回
     backTo.value = upperPath;
-
-    // if (oldVal) {
-    //   // 返回路径
-    //   if (newVal.includes(oldVal)) {
-    //     // 从父级路由进入
-    //     backTo.value = upperPath;
-    //   } else {
-    //     // 从 /xxx 跳到 /posts/xxx 退回 /xxx
-    //     if (newVal.includes('/posts/')) {
-    //       backTo.value = oldVal;
-    //     } else {
-    //       // 正常从父级路由退回
-    //       backTo.value = upperPath;
-    //     }
-    //   }
-    // } else {
-    //   backTo.value = upperPath;
-    // }
   }, { immediate: true }
 );
 </script>
@@ -98,8 +90,11 @@ watch(
   a {
     font-weight: inherit;
     text-decoration: none;
-    border-bottom: 1px solid rgba(125,125,125,.3);
     transition: border .3s ease-in-out;
+    border-bottom: 1px solid rgba(125,125,125,.3);
+    &:hover {
+      border-color: rgb(125,125,125);;
+    }
   }
 }
 </style>

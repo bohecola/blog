@@ -38,7 +38,7 @@ export interface Records {
 
 // 资料
 export interface Profile {
-  nikeName: string;
+  nickName: string;
   avatar: string;
   desc: string | null;
   email: string | null;
