@@ -19,6 +19,8 @@
 </template>
 
 <script lang="ts" setup>
+// 文档标题
+useHead({ title: 'Categories' });
 // 数据获取
 const { data: categories } = useLazyAsyncData('categories', () => $fetch('/api/categories'));
 </script>

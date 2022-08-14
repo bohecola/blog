@@ -16,6 +16,9 @@
 </template>
 
 <script lang="ts" setup>
+// 文档标题
+useHead({ title: 'Records' });
+// 归档数据
 const { data: records } = useAsyncData('records', () => $fetch('/api/records'));
 </script>
 

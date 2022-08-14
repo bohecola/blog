@@ -16,6 +16,8 @@ const page = ref(1);
 const size = ref(100);
 // 路由
 const route = useRoute();
+// 文档标题
+useHead({ title: route.params.slug as string });
 
 // 数据获取
 const { pending, data: posts } = useLazyAsyncData('tag-posts', () => $fetch('/api/posts/page', {

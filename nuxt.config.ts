@@ -23,6 +23,7 @@ export default defineNuxtConfig({
     baseURL: "/",
     buildAssetsDir: '/_nuxt/',
     head: {
+      title: 'Test',
       meta: [{ name: 'viewport', content: 'width=device-width, initial-scale=1' }],
       link: [{ rel: 'icon', type: 'image/svg+xml', href: '/favicon.svg' }],
       noscript: [{ children: 'Javascript is required' }],

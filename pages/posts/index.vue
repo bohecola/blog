@@ -2,7 +2,7 @@
   <div class="posts">
     <loading v-if="pending" />
     <template v-else>
-      <h1 class="mt-0 opacity-60">POST</h1>
+      <h1 class="mt-0 opacity-60">Posts</h1>
       <!-- 列表 -->
       <post-list :posts="posts.list" />
       <!-- 分页 -->
@@ -17,6 +17,8 @@
 </template>
 
 <script lang="ts" setup>
+// 文档标题
+useHead({ title: 'Posts' });
 // 页数
 const page = ref(1);
 // 数量

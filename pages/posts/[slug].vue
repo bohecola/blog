@@ -28,9 +28,8 @@
 import MdEditor from "md-editor-v3";
 import { Themes } from "md-editor-v3"
 import "md-editor-v3/lib/style.css";
-// 文档目录
+// 目录元素
 const MdCatalog = MdEditor.MdCatalog;
-
 // 主题色获取
 const color = useColorMode();
 // 编辑器主题设置
@@ -53,6 +52,8 @@ function onCatalogClick(e, t) {
 }
 // 路由
 const route = useRoute();
+// 文档标题
+useHead({ title: route.params.slug as string });
 // 数据获取
 const { pending, data: info } = useLazyAsyncData('post-info', () => $fetch('/api/posts/info', {
   method: 'get',

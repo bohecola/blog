@@ -19,6 +19,8 @@
 </template>
 
 <script lang="ts" setup>
+// 文档标题
+useHead({ title: 'Tags' });
 // 数据获取
 const { data: tags } = useLazyAsyncData('tags', () => $fetch('/api/tags'));
 </script>

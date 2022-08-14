@@ -16,5 +16,8 @@
 </template>
 
 <script lang="ts" setup>
+// 简介数据
 const { pending, data: profile } = useAsyncData('profile', () => $fetch('/api/profile'));
+// 文档标题
+  useHead({ title: 'Intro' });
 </script>
