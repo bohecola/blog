@@ -15,7 +15,7 @@
           <span v-if="item.text" class="lt-md:hidden">{{ item.text }}</span>
           <div v-if="index === 0" md:hidden i-carbon-notebook />
           <div v-else-if="index === 1" md:hidden i-carbon-catalog />
-          <div v-else-if="index === 2" md:hidden i-carbon-tag />
+          <div v-else-if="index === 2" md:hidden i-material-symbols-bookmarks-outline-rounded />
           <div v-else-if="index === 3" md:hidden i-carbon-archive />
           <div v-else-if="index === 4" md:hidden i-carbon-link />
         </nuxt-link>
@@ -39,7 +39,7 @@
 
 <script lang="ts" setup>
 const topbars = ref([
-  { href: '/posts', title: 'Blog', text: 'Posts' },
+  { href: '/posts', title: 'Blog', text: 'Blog' },
   { href: '/categories', title: 'Categories', text: '目录' },
   { href: '/tags', title: 'Tags', text: '标签' },
   { href: '/records', title: 'Records', text: '归档' },

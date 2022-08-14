@@ -8,12 +8,6 @@ export default defineEventHandler(async (event) => {
 
   // 数据
   const result: Response<Tag[]> = await $fetch(`${baseURL}/tags`);
-  
-  // 添加 slug
-  const data = result.data.map((item) => {
-    item.slug = slug(pinyin(item.name, { removeTone: true }))
-    return item;
-  });
 
-  return data;
+  return result.data;
 })

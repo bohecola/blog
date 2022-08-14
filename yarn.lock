@@ -313,6 +313,13 @@
   dependencies:
     "@iconify/types" "*"
 
+"@iconify-json/material-symbols@^1.1.14":
+  version "1.1.14"
+  resolved "https://registry.yarnpkg.com/@iconify-json/material-symbols/-/material-symbols-1.1.14.tgz#03d8449e0f9db0f2af077f73ed56f190c4433295"
+  integrity sha512-xWw32NNz9S0zB5WXc3igQACvKm1e0uK7NRb5M/PdZhbvpzUvpWuUurlKQeROEyN1a9QTy1dKoc2THMnJ8B/ZPg==
+  dependencies:
+    "@iconify/types" "*"
+
 "@iconify/types@*", "@iconify/types@^1.1.0":
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/@iconify/types/-/types-1.1.0.tgz#dc15fc988b1b3fd558dd140a24ede7e0aac11280"
@@ -694,6 +701,11 @@
     "@types/node" "*"
     "@types/tough-cookie" "*"
     parse5 "^7.0.0"
+
+"@types/marked@^4.0.3":
+  version "4.0.3"
+  resolved "https://registry.yarnpkg.com/@types/marked/-/marked-4.0.3.tgz#2098f4a77adaba9ce881c9e0b6baf29116e5acc4"
+  integrity sha512-HnMWQkLJEf/PnxZIfbm0yGJRRZYYMhb++O9M36UCTA9z53uPvVoSlAwJr3XOpDEryb7Hwl1qAx/MV6YIW1RXxg==
 
 "@types/node@*":
   version "18.6.4"
@@ -2101,6 +2113,11 @@ fast-glob@^3.2.11, fast-glob@^3.2.7:
     merge2 "^1.3.0"
     micromatch "^4.0.4"
 
+fastclick@^1.0.6:
+  version "1.0.6"
+  resolved "https://registry.yarnpkg.com/fastclick/-/fastclick-1.0.6.tgz#161625b27b1a5806405936bda9a2c1926d06be6a"
+  integrity sha512-cXyDBT4g0uWl/Xe75QspBDAgAWQ0lkPi/zgp6YFEUHj6WV6VIZl7R6TiDZhdOVU3W4ehp/8tG61Jev1jit+ztQ==
+
 fastq@^1.6.0:
   version "1.13.0"
   resolved "https://registry.yarnpkg.com/fastq/-/fastq-1.13.0.tgz#616760f88a7526bdfc596b7cab8c18938c36b98c"
@@ -2819,6 +2836,13 @@ make-dir@^3.1.0, make-dir@~3.1.0:
   dependencies:
     semver "^6.0.0"
 
+md-editor-v3@^2.2.1:
+  version "2.2.1"
+  resolved "https://registry.yarnpkg.com/md-editor-v3/-/md-editor-v3-2.2.1.tgz#96a88f86348c82b9f04f8c1eb3982c009ea63310"
+  integrity sha512-nOd8mlEhvC99l9Y8pDMwEi6EdCAeBp88Ffl24We+2uz3/Iympctm92L1qyNicONJRhtZJacQ4oWTQGMYKGAxVg==
+  dependencies:
+    "@types/marked" "^4.0.3"
+
 mdn-data@2.0.14:
   version "2.0.14"
   resolved "https://registry.yarnpkg.com/mdn-data/-/mdn-data-2.0.14.tgz#7113fc4281917d63ce29b43446f701e68c25ba50"
@@ -3145,11 +3169,6 @@ npmlog@^5.0.1:
     console-control-strings "^1.1.0"
     gauge "^3.0.0"
     set-blocking "^2.0.0"
-
-nprogress@^0.2.0:
-  version "0.2.0"
-  resolved "https://registry.yarnpkg.com/nprogress/-/nprogress-0.2.0.tgz#cb8f34c53213d895723fcbab907e9422adbcafb1"
-  integrity sha512-I19aIingLgR1fmhftnbWWO3dXc0hSxqHQHQb3H8m+K3TnEn/iSeTZZOyvKXWqQESMwuUVnatlCnZdLBZZt2VSA==
 
 nth-check@^2.0.1:
   version "2.1.1"

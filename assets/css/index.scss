@@ -50,7 +50,15 @@ img, video {
   height: auto;
 }
 
+.md {
+  --md-bk-color: transparent !important;
+  h1, h2, h3, h4, h5, h6 {
+    a {
+      border-bottom: none;
+    }
+  }
+}
 
-#nprogress .bar {
-  background: #4DE7A8 !important;
+.prose :where(pre):not(:where(.not-prose,.not-prose *)) {
+  padding: 0 !important;
 }

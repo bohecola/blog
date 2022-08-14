@@ -36,13 +36,6 @@
 </template>
 
 <script lang="ts" setup>
-import NProgress from "nprogress";
-import "nprogress/nprogress.css"
-
-NProgress.configure({ 
-  showSpinner: false
-});
-
 // 路由
 const route = useRoute();
 
@@ -54,27 +47,42 @@ const backTo = ref('');
 
 // 监听路由变化
 watch(
-  route, 
-  (val) => {
+  () => route.fullPath, 
+  (newVal, oldVal) => {
     // 上级路径
-    const upperPath = val.path.substring(0, val.path.lastIndexOf('/'));
-    // 返回路径
-    backTo.value = upperPath ? upperPath : '/';  
+    const upperPath = newVal.substring(0, newVal.lastIndexOf('/')) || '/';
+    backTo.value = upperPath;
+
+    // if (oldVal) {
+    //   // 返回路径
+    //   if (newVal.includes(oldVal)) {
+    //     // 从父级路由进入
+    //     backTo.value = upperPath;
+    //   } else {
+    //     // 从 /xxx 跳到 /posts/xxx 退回 /xxx
+    //     if (newVal.includes('/posts/')) {
+    //       backTo.value = oldVal;
+    //     } else {
+    //       // 正常从父级路由退回
+    //       backTo.value = upperPath;
+    //     }
+    //   }
+    // } else {
+    //   backTo.value = upperPath;
+    // }
   }, { immediate: true }
 );
-
-router.beforeEach((to, from, next) => {
-  NProgress.start();
-  next();
-});
-
-
-router.afterEach((to, from) => {
-  NProgress.done();
-});
 </script>
 
 <style lang="scss">
+.app {
+  header {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    backdrop-filter: blur(10px);
+  }
+}
 .prose {
   &>:first-child {
     margin-top: 0;

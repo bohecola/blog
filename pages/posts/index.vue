@@ -1,7 +1,8 @@
 <template>
   <div class="posts">
-    <div v-if="pending">Loading...</div>
+    <loading v-if="pending" />
     <template v-else>
+      <h1 class="mt-0 opacity-60">POST</h1>
       <post-list :posts="posts.list" />
       <pagination
         :page="page"
@@ -20,7 +21,7 @@ const page = ref(1);
 const size = ref(10);
 
 // 数据获取
-const { pending, data: posts } = useLazyAsyncData('posts', () => $fetch('/api/posts', {
+const { pending, data: posts } = useLazyAsyncData('posts', () => $fetch('/api/posts/page', {
   method: 'post',
   body: {
     page: page.value,
@@ -30,6 +31,8 @@ const { pending, data: posts } = useLazyAsyncData('posts', () => $fetch('/api/po
 
 // 刷新数据
 const refresh = () => refreshNuxtData('posts');
+
+onMounted(() => refresh());
 
 // 翻页
 function currentChange(val) {

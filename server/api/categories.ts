@@ -7,12 +7,6 @@ import slug from "slug";
 export default defineEventHandler(async (event) => {
   // 数据
   const result: Response<Category[]> = await $fetch(`${baseURL}/categories`);
-  
-  // 生成 slug
-  const data = result.data.map((item) => {
-    item.slug = slug(pinyin(item.name, { removeTone: true }))
-    return item;
-  });
 
-  return data;
+  return result.data;
 })

@@ -8,12 +8,7 @@
       >
         <nuxt-link
           class="opacity-60 hover:opacity-75"
-          :to="{
-            name: 'tags-slug',
-            params: {
-              ...tag
-            }
-          }"
+          :to="`/tags/${tag.slug}`"
         >
           {{ `${tag.name}(${tag.count})` }}
         </nuxt-link>

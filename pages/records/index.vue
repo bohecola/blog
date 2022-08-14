@@ -20,21 +20,23 @@ const { data: records } = useAsyncData('records', () => $fetch('/api/records'));
 </script>
 
 <style lang="scss" scoped>
-.record {
-  position: relative;
-  margin-bottom: 1rem;
-  &:last-child {
-    margin-bottom: 0;
-  }
+.records {
+  .record {
+    position: relative;
+    margin-bottom: 1rem;
+    &:last-child {
+      margin-bottom: 0;
+    }
 
-  &-year {
-    position: absolute;
-    top: -5.5rem;
-    left: -2.25rem;
-    font-size: 8.5rem;
-    font-weight: 500;
-    color: rgba($color: #999, $alpha: 0.2);
-    z-index: -1;
+    &-year {
+      position: absolute;
+      top: -3.95rem;
+      left: -1.5rem;
+      font-size: 6rem;
+      font-weight: 500;
+      color: rgba($color: #999, $alpha: 0.2);
+      z-index: -1;
+    }
   }
 }
 </style>
