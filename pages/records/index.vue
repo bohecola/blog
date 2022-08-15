@@ -19,7 +19,7 @@
 // 文档标题
 useHead({ title: 'Records' });
 // 归档数据
-const { data: records } = useAsyncData('records', () => $fetch('/api/records'));
+const { data: records } = useFetch('/api/records');
 </script>
 
 <style lang="scss" scoped>

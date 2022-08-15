@@ -5,7 +5,7 @@ import slug from "slug";
 
 // 请求方法
 export default defineEventHandler(async (event) => {
-  // 数据
+  // 目录数据
   const result: Response<Category[]> = await $fetch(`${baseURL}/categories`);
 
   return result.data;

@@ -17,7 +17,7 @@
 
 <script lang="ts" setup>
 // 简介数据
-const { pending, data: profile } = useAsyncData('profile', () => $fetch('/api/profile'));
+const { pending, data: profile } = useFetch('/api/profile');
 // 文档标题
-  useHead({ title: 'Intro' });
+useHead({ title: 'Intro' });
 </script>

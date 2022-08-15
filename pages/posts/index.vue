@@ -19,26 +19,30 @@
 <script lang="ts" setup>
 // 文档标题
 useHead({ title: 'Posts' });
-// 页数
-const page = ref(1);
-// 数量
-const size = ref(100);
+const { page, size, setPage } = usePagination();
 
 // 数据获取
-const { pending, data: posts } = useLazyAsyncData('posts', () => $fetch('/api/posts/page', {
+// 使用 useFetch 执行 refresh() 的时候不刷新 RequestBody
+// 而使用 useAsyncData 得到的 refresh 可以刷新 RequestBody
+// const { pending, data: posts, refresh } = useFetch(`/api/posts/page`, {
+//   method: 'post',
+//   body: {
+//     page: page.value,
+//     size: size.value
+//   }
+// });
+
+const { pending, data: posts, refresh } = useAsyncData('posts-page', () => $fetch('/api/posts/page', {
   method: 'post',
   body: {
     page: page.value,
     size: size.value
-  },
+  }
 }));
 
-// 刷新数据
-const refresh = () => refreshNuxtData('posts');
-
 // 翻页
-function currentChange(val) {
-  page.value = val;
+function currentChange(val: number) {
+  setPage(val);
   refresh();
 }
 </script>

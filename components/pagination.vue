@@ -6,13 +6,9 @@
 </template>
 
 <script lang="ts" setup>
-import { PropType } from "vue";
-import { Pagination } from "~/types";
-
 const emit = defineEmits(["currentChange"]);
 
 const props = defineProps({
-  pagination: Object as PropType<Pagination>,
   page: Number,
   size: Number,
   total: Number
@@ -42,7 +38,6 @@ function next() {
 .pagination {
   button {
     cursor: pointer;
-    outline: none;
   }
 }
 </style>

@@ -20,12 +20,13 @@ const route = useRoute();
 useHead({ title: route.params.slug as string });
 
 // 数据获取
-const { pending, data: posts } = useLazyAsyncData('tag-posts', () => $fetch('/api/posts/page', {
+const { pending, data: posts } = useFetch('/api/posts/page', {
   method: 'post',
+  key: route.params.slug as string,
   body: {
     page: page.value,
     size: size.value,
     tagSlugList: [route.params.slug]
   }
-}));
+});
 </script>

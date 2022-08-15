@@ -5,12 +5,10 @@
       <li 
         v-for="category in categories"
         :key="category.id"
-        class="mb-2"
-      >
+        class="mb-2">
         <nuxt-link
           class="opacity-60 hover:opacity-75"
-          :to="`/categories/${category.slug}`"
-        >
+          :to="`/categories/${category.slug}`">
           {{ `${category.name}(${category.count})` }}
         </nuxt-link>
       </li>
@@ -22,5 +20,5 @@
 // 文档标题
 useHead({ title: 'Categories' });
 // 数据获取
-const { data: categories } = useLazyAsyncData('categories', () => $fetch('/api/categories'));
+const { data: categories } = useFetch('/api/categories');
 </script>

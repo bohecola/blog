@@ -4,7 +4,7 @@
     <template v-else>
       <!-- 标题 -->
       <h1>{{ info.title }}</h1>
-      <!-- 编辑器 -->
+      <!-- 编辑器-预览模式 -->
       <md-editor
         v-model="info.content"
         editor-id="md-editor"
@@ -13,7 +13,7 @@
         preview-theme="github"
         preview-only
       />
-      <!-- 标题目录 -->
+      <!-- 导航目录 -->
       <md-catalog
         class="custom-catalog lt-lg:hidden"
         editor-id="md-editor"
@@ -28,14 +28,19 @@
 import MdEditor from "md-editor-v3";
 import { Themes } from "md-editor-v3"
 import "md-editor-v3/lib/style.css";
-// 目录元素
-const MdCatalog = MdEditor.MdCatalog;
-// 主题色获取
-const color = useColorMode();
-// 编辑器主题设置
-const editorTheme = computed(() => color.value);
-// 文档元素
-const scrollElement = ref(null);
+
+// 路由
+const route = useRoute();
+// 文档标题
+useHead({ title: route.params.slug as string });
+// 数据获取
+const { data: info, pending } = useFetch('/api/posts/info', { 
+  key: route.params.slug as string,
+  params: {
+    slug: route.params.slug
+  }  
+});
+
 // 编辑器配置
 MdEditor.config({
   markedRenderer(renderer) {
@@ -46,30 +51,22 @@ MdEditor.config({
     return renderer;
   }
 });
+
+// 目录元素
+const MdCatalog = MdEditor.MdCatalog;
+// 主题色获取
+const color = useColorMode();
+// 编辑器主题设置
+const editorTheme = computed(() => color.value);
+// 滚动元素
+const scrollElement = ref(null);
 // URL哈希
 function onCatalogClick(e, t) {
   history.replaceState({}, '', `${location.pathname}#${t.text}`);
 }
-// 路由
-const route = useRoute();
-// 文档标题
-useHead({ title: route.params.slug as string });
-// 数据获取
-const { pending, data: info } = useLazyAsyncData('post-info', () => $fetch('/api/posts/info', {
-  method: 'get',
-  params: {
-    slug: route.params.slug
-  }
-}));
-
-// 刷新数据
-const refresh = () => refreshNuxtData('post-info');
-refresh();
-
 // 页面挂载前
 onBeforeMount(() => {
-  // 刷新清空 URL哈希 (临时处理)
-  history.replaceState({}, '', `${location.pathname}`);
+  // 滚动元素设置
   scrollElement.value = document.documentElement;
 });
 </script>
@@ -77,12 +74,15 @@ onBeforeMount(() => {
 <style lang="scss">
 .post {
   .custom-catalog {
-    padding: .625rem 1rem;
+    padding: .625rem 0;
     position: fixed;
-    top: 8rem;
-    right: 2rem;
-    border-radius: 2px;
-    background: rgba($color: #999, $alpha: 0.1);
+    top: 5.5rem;
+    right: 1rem;
+    height: calc(100% - 5.5rem);
+    border-left: 1px dashed #ccc;
+    .md-catalog-link {
+      padding: .5rem 1rem;
+    }
   }
 }
 </style>

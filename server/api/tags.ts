@@ -5,8 +5,7 @@ import slug from "slug";
 
 // 请求方法
 export default defineEventHandler(async (event) => {
-
-  // 数据
+  // 标签数据
   const result: Response<Tag[]> = await $fetch(`${baseURL}/tags`);
 
   return result.data;

@@ -5,12 +5,10 @@
       <li 
         v-for="tag in tags"
         :key="tag.id"
-        class="mb-2"
-      >
+        class="mb-2">
         <nuxt-link
           class="opacity-60 hover:opacity-75"
-          :to="`/tags/${tag.slug}`"
-        >
+          :to="`/tags/${tag.slug}`">
           {{ `${tag.name}(${tag.count})` }}
         </nuxt-link>
       </li>
@@ -22,5 +20,5 @@
 // 文档标题
 useHead({ title: 'Tags' });
 // 数据获取
-const { data: tags } = useLazyAsyncData('tags', () => $fetch('/api/tags'));
+const { data: tags } = useFetch('/api/tags');
 </script>
