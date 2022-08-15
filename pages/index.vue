@@ -2,10 +2,9 @@
   <div class="profile">
     <loading v-if="pending" />
     <template v-else>
-      <h1>Hello World</h1>
+      <h1>Hello</h1>
       <img class="w-25 h-25" :src="profile.avatar" alt="avatar" />
-      <p>Hi, I'm {{ profile.nickName }}, nice to meet you.</p>
-      <p></p>
+      <p>I'm {{ profile.nickName }}, nice to meet you.</p>
       <p>{{ profile.desc }}</p>
       <p>
         Email: 

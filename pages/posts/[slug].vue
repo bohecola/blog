@@ -1,5 +1,5 @@
 <template>
-  <div class="post">
+  <div class="post-info">
     <loading v-if="pending" />
     <template v-else>
       <!-- 标题 -->
@@ -72,7 +72,7 @@ onBeforeMount(() => {
 </script>
 
 <style lang="scss">
-.post {
+.post-info {
   .custom-catalog {
     padding: .625rem 0;
     position: fixed;

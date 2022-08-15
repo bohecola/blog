@@ -48,9 +48,6 @@
 // 路由
 const route = useRoute();
 
-// 路由器
-const router = useRouter();
-
 // 返回路径
 const backTo = ref('');
 

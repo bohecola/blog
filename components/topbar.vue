@@ -29,7 +29,7 @@
           <div v-else-if="index === 6" lt-md:hidden i-la-rss-square />
         </nuxt-link>
 
-        <nuxt-link v-if="index === topbars.length - 1">
+        <nuxt-link class="select-none" v-if="index === topbars.length - 1">
           <dark-toggle :title="item.title" />
         </nuxt-link>
       </template>

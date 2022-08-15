@@ -2,7 +2,7 @@
   <div
     dark:i-carbon-moon
     i-carbon-sun cursor-pointer
-    @click="toggleDark" 
+    @click="toggleDark"
   />
 </template>
 
