@@ -6,5 +6,5 @@
 
 <script lang="ts" setup>
 // 文档标题
-useHead({ title: 'Links' });
+useHead({ title: 'links' });
 </script>

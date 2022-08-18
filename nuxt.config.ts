@@ -16,7 +16,9 @@ export default defineNuxtConfig({
   },
   runtimeConfig: {
     public: {
-      baseURL: 'http://localhost:3000/api/posts'
+      baseURL: process.env.NODE_ENV === 'development'
+        ? 'http://localhost:3000/api/posts'
+        : 'https://canday.site:3000/api/posts'
     }
   },
   app: {

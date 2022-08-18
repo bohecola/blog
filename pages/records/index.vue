@@ -17,7 +17,7 @@
 
 <script lang="ts" setup>
 // 文档标题
-useHead({ title: 'Records' });
+useHead({ title: 'records' });
 // 归档数据
 const { data: records } = useFetch('/api/records');
 </script>

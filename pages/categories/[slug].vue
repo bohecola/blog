@@ -2,7 +2,9 @@
   <div class="posts">
     <loading v-if="pending" />
     <template v-else>
-      <h1 class="mt-0 opacity-60">{{ ($route.params.slug as string).toUpperCase().replace('-', ' ') }}</h1>
+      <h1 class="mt-0 opacity-60">
+        {{ ($route.params.slug as string).toUpperCase().replace('-', ' ') }}
+      </h1>
       <!-- 列表 -->
       <post-list :posts="posts.list" />
     </template>

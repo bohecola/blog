@@ -17,5 +17,13 @@ export default defineEventHandler(async (event) => {
     body,
   });
 
+  result.data.list = result.data.list.map(post => {
+    post.createdAt = new Date(post.createdAt)
+    .toDateString()
+    .substring(4)
+    .replace(/(?<=\d)\u0020(?=\d)/g, ', ');
+    return post;
+  });
+
   return result.data;
 })

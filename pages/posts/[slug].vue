@@ -1,9 +1,27 @@
 <template>
   <div class="post-info">
     <loading v-if="pending" />
-    <template v-else>
+    <template v-if="info">
       <!-- 标题 -->
       <h1>{{ info.title }}</h1>
+      <p class="mt-0 mb-1 flex items-center justify-end opacity-60">
+        <template v-if="info.category">
+          <div i-carbon-catalog />
+          <nuxt-link
+            class="ml-1"
+            :to="`/categories/${info.category.slug}`"
+          >{{ info.category.name }}</nuxt-link>
+        </template>
+        <template v-if="info.tags.length">
+          <div ml-2 i-material-symbols-bookmarks-outline-rounded />
+          <nuxt-link
+            v-for="t in info.tags"
+            :key="t.slug"
+            class="ml-2"
+            :to="`/tags/${t.slug}`"
+          >{{ t.name }}</nuxt-link>
+        </template>
+      </p>
       <!-- 编辑器-预览模式 -->
       <md-editor
         v-model="info.content"
@@ -34,7 +52,7 @@ const route = useRoute();
 // 文档标题
 useHead({ title: route.params.slug as string });
 // 数据获取
-const { data: info, pending } = useFetch('/api/posts/info', { 
+const { data: info, pending } = useLazyFetch('/api/posts/info', { 
   key: route.params.slug as string,
   params: {
     slug: route.params.slug
@@ -74,11 +92,9 @@ onBeforeMount(() => {
 <style lang="scss">
 .post-info {
   .custom-catalog {
-    padding: .625rem 0;
     position: fixed;
     top: 5.5rem;
     right: 1rem;
-    height: calc(100% - 5.5rem);
     border-left: 1px dashed #ccc;
     .md-catalog-link {
       padding: .5rem 1rem;
