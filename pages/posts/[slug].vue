@@ -52,7 +52,7 @@ const route = useRoute();
 // 文档标题
 useHead({ title: route.params.slug as string });
 // 数据获取
-const { data: info, pending } = useLazyFetch('/api/posts/info', { 
+const { data: info, pending } = useFetch('/api/posts/info', { 
   key: route.params.slug as string,
   params: {
     slug: route.params.slug

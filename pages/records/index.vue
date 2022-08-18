@@ -1,17 +1,20 @@
 <template>
   <div class="records">
-    <div
-      v-for="(posts, year) of records"
-      :key="year"
-      class="record">
-      <!-- 年份 -->
-      <div class="record-year">{{ year }}</div>
-      <!-- 列表 -->
-      <post-list
+    <loading v-if="pending" />
+    <template v-else>
+      <div
+        v-for="(posts, year) of records"
         :key="year"
-        :posts="posts"
-      />
-    </div>
+        class="record">
+        <!-- 年份 -->
+        <div class="record-year">{{ year }}</div>
+        <!-- 列表 -->
+        <post-list
+          :key="year"
+          :posts="posts"
+        />
+      </div>
+    </template>
   </div>
 </template>
 
@@ -19,7 +22,7 @@
 // 文档标题
 useHead({ title: 'records' });
 // 归档数据
-const { data: records } = useFetch('/api/records');
+const { data: records, pending } = useFetch('/api/records');
 </script>
 
 <style lang="scss" scoped>

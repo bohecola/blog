@@ -22,7 +22,7 @@ const route = useRoute();
 useHead({ title: route.params.slug as string });
 
 // 数据获取
-const { pending, data: posts } = useFetch('/api/posts/page', {
+const { data: posts, pending } = useFetch('/api/posts/page', {
   method: 'post',
   key: route.params.slug as string,
   body: {
