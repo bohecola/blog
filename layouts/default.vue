@@ -31,7 +31,7 @@
       <!-- 备案 -->
       <div class="prose m-auto">      
         <p class="text-sm">
-          <span class="opacity-60 mr-1">© 2021-PRESENT Candy</span>
+          <span class="opacity-60 mr-1">© 2021-PRESENT Canday</span>
           <nuxt-link
             class="opacity-60 hover:opacity-75"
             to="https://beian.miit.gov.cn"

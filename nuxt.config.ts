@@ -26,10 +26,27 @@ export default defineNuxtConfig({
     buildAssetsDir: '/_nuxt/',
     head: {
       title: 'Test',
-      meta: [{ name: 'viewport', content: 'width=device-width, initial-scale=1' }],
+      meta: [
+        { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+        { name: 'keywords', content: 'bohecola,个人博客,个人空间' },
+        { name: 'description', content: 'bohecola的个人博客,bohecola的个人空间' },
+      ],
+      script: [
+        { 
+          children: `
+            var _hmt = _hmt || [];
+            (function() {
+              var hm = document.createElement("script");
+              hm.src = "https://hm.baidu.com/hm.js?84cb0c8528bb5b73dce68df6d549118d";
+              var s = document.getElementsByTagName("script")[0]; 
+              s.parentNode.insertBefore(hm, s);
+            })();
+          ` 
+        }
+      ],
       link: [{ rel: 'icon', type: 'image/svg+xml', href: '/favicon.svg' }],
       noscript: [{ children: 'Javascript is required' }],
       charset: "utf-8",
-    } 
+    }
   }
 })

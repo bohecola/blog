@@ -21,9 +21,10 @@
         </nuxt-link>
 
         <nuxt-link 
-          v-if="[5, 6].includes(index)"
+          v-if="[5].includes(index)"
           :title="item.title"
           :to="item.href"
+          target="_blank"
           lt-md:hidden>
           <div v-if="index === 5"  i-carbon-logo-github />
           <div v-else-if="index === 6" lt-md:hidden i-la-rss-square />

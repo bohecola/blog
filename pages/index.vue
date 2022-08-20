@@ -3,7 +3,7 @@
     <loading v-if="pending" />
     <template v-else>
       <h1>Hello</h1>
-      <img class="w-25 h-25" :src="profile.avatar" alt="avatar" />
+      <img class="w-25 h-25 object-cover" :src="profile.avatar" alt="avatar" />
       <p>I'm {{ profile.nickName }}, nice to meet you.</p>
       <p>{{ profile.desc }}</p>
       <p>

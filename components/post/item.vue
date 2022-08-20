@@ -6,15 +6,15 @@
     <li class="no-underline">
       <div class="title text-lg leading-1.2em">{{ post.title }}</div>
       <div class="desc opacity-50 text-sm mt-2 mb-1">{{ post.desc }}</div>
-      <div class="time flex items-center opacity-50 text-sm">
-        {{ post.createdAt }}
+      <div class="flex items-center opacity-50 text-sm">
+        <span class="time">{{ post.createdAt }}</span>
         <div
           v-if="post.categoryName || post.tagNames" 
           class="ml-2 flex items-center desc">
           <div v-if="post.categoryName" class="mr-1" i-carbon-catalog />
-          {{ post.categoryName }}
+          <span>{{ post.categoryName }}</span>
           <div v-if="post.tagNames" ml-2 mr-1 i-material-symbols-bookmarks-outline-rounded />
-          {{ post.tagNames }}
+          <span>{{ post.tagNames }}</span>
         </div>
       </div>
     </li>
