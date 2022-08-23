@@ -12,7 +12,6 @@
     "@iconify-json/material-symbols": "^1.1.14",
     "@nuxtjs/color-mode": "^3.1.4",
     "@unocss/nuxt": "^0.45.5",
-    "fastclick": "^1.0.6",
     "md-editor-v3": "^2.2.1",
     "nuxt": "3.0.0-rc.8",
     "sass": "^1.54.4"
