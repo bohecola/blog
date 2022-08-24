@@ -3,30 +3,39 @@
     <loading v-if="pending" />
     <template v-if="info">
       <!-- 标题 -->
-      <h1>{{ info.title }}</h1>
-      <p class="mt-0 mb-1 flex items-center justify-end opacity-60">
-        <template v-if="info.category">
-          <div i-carbon-catalog />
-          <nuxt-link
-            class="ml-1"
-            :to="`/categories/${info.category.slug}`"
-          >{{ info.category.name }}</nuxt-link>
-        </template>
-        <template v-if="info.tags.length">
-          <div ml-2 i-material-symbols-bookmarks-outline-rounded />
-          <nuxt-link
-            v-for="t in info.tags"
-            :key="t.slug"
-            class="ml-2"
-            :to="`/tags/${t.slug}`"
-          >{{ t.name }}</nuxt-link>
-        </template>
-      </p>
+      <h1 class="mt-0 mb-0">{{ info.title }}</h1>
+      <section class="panel mt-2 mb-2 opacity-60">
+        <p class="mt-0 flex items-center justify-between">
+          <span>{{ createdTime }}</span>
+          <span class="flex items-center">
+            <template v-if="info.category">
+              <span i-carbon-catalog />
+              <nuxt-link
+                class="ml-1"
+                :to="`/categories/${info.category.slug}`"
+              >{{ info.category.name }}</nuxt-link>
+            </template>
+
+            <template v-if="info.tags.length">
+              <span ml-2 i-material-symbols-bookmarks-outline-rounded />
+              <nuxt-link
+                v-for="t in info.tags"
+                :key="t.slug"
+                class="ml-2"
+                :to="`/tags/${t.slug}`"
+              >{{ t.name }}</nuxt-link>
+            </template>
+          </span>
+        </p>
+        <p v-if="info.desc" class="mt-0 mb-0 desc">{{ info.desc }}</p>
+      </section>
+      
       <!-- 编辑器-预览模式 -->
       <md-editor
         v-model="info.content"
         editor-id="md-editor"
         :theme="(editorTheme as Themes)"
+        :showCodeRowNumber="true"
         code-theme="atom"
         preview-theme="github"
         preview-only
@@ -58,6 +67,13 @@ const { data: info, pending } = useFetch('/api/posts/info', {
     slug: route.params.slug
   }  
 });
+// 时间
+const createdTime = computed(() => {
+  return new Date(info.value.createdAt)
+    .toDateString()
+    .substring(4)
+    .replace(/(?<=\d)\u0020(?=\d)/g, ', ');
+})
 
 // 编辑器配置
 MdEditor.config({
@@ -85,12 +101,17 @@ function onCatalogClick(e, t) {
 // 页面挂载前
 onBeforeMount(() => {
   // 滚动元素设置
+  // console.log(document.querySelector('.post-info'));
   scrollElement.value = document.documentElement;
 });
 </script>
 
 <style lang="scss">
 .post-info {
+  .desc {
+    padding: .75rem 1rem;
+    background-color: rgba($color: #bbb, $alpha: 0.2);
+  }
   .custom-catalog {
     position: fixed;
     top: 5.5rem;

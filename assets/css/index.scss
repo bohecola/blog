@@ -11,12 +11,6 @@ html {
   Segoe UI Symbol, "Noto Color Emoji";
 }
 
-#app {
-  height: 100vh;
-  width: 100vw;
-  overflow: hidden;
-}
-
 a {
   text-decoration: none;
 }
@@ -47,6 +41,16 @@ img, video {
 
 .prose :where(pre):not(:where(.not-prose,.not-prose *)) {
   padding: 0 !important;
+}
+
+.prose :where(:not(pre)>code):not(:where(.not-prose,.not-prose *)) {
+  &::before, &::after {
+    content: "" !important;
+  }
+}
+
+.github-theme pre code {
+  letter-spacing: 0 !important;
 }
 
 // .page-enter-active {
