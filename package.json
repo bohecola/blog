@@ -10,6 +10,7 @@
     "@iconify-json/carbon": "^1.1.7",
     "@iconify-json/la": "^1.1.2",
     "@iconify-json/material-symbols": "^1.1.14",
+    "@iconify-json/ri": "^1.1.3",
     "@nuxtjs/color-mode": "^3.1.4",
     "@unocss/nuxt": "^0.45.5",
     "md-editor-v3": "^2.2.1",

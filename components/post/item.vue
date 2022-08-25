@@ -11,9 +11,9 @@
         <div
           v-if="post.categoryName || post.tagNames" 
           class="ml-2 flex items-center desc">
-          <div v-if="post.categoryName" class="mr-1" i-carbon-catalog />
+          <div v-if="post.categoryName" class="mr-1" i-ri-book-line />
           <span>{{ post.categoryName }}</span>
-          <div v-if="post.tagNames" ml-2 mr-1 i-material-symbols-bookmarks-outline-rounded />
+          <div v-if="post.tagNames" ml-2 mr-1 i-carbon-tag-group />
           <span>{{ post.tagNames }}</span>
         </div>
       </div>

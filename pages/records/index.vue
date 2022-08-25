@@ -38,7 +38,7 @@ const { data: records, pending } = useFetch('/api/records');
       position: absolute;
       top: -3.95rem;
       left: -1.5rem;
-      font-size: 6rem;
+      font-size: 8.75rem;
       font-weight: 500;
       color: rgba($color: #999, $alpha: 0.2);
       z-index: -1;

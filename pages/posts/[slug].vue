@@ -6,10 +6,10 @@
       <h1 class="mt-0 mb-0">{{ info.title }}</h1>
       <section class="panel mt-2 mb-2 opacity-60">
         <p class="mt-0 flex items-center justify-between">
-          <span>{{ createdTime }}</span>
+          <span>{{ info.createdAt }}</span>
           <span class="flex items-center">
             <template v-if="info.category">
-              <span i-carbon-catalog />
+              <span i-ri-book-line />
               <nuxt-link
                 class="ml-1"
                 :to="`/categories/${info.category.slug}`"
@@ -17,7 +17,7 @@
             </template>
 
             <template v-if="info.tags.length">
-              <span ml-2 i-material-symbols-bookmarks-outline-rounded />
+              <span ml-2 i-carbon-tag-group />
               <nuxt-link
                 v-for="t in info.tags"
                 :key="t.slug"
@@ -44,7 +44,6 @@
       <md-catalog
         class="custom-catalog lt-lg:hidden"
         editor-id="md-editor"
-        :scroll-element="scrollElement"
         :theme="(editorTheme as Themes)"
         @onClick="onCatalogClick"
       />
@@ -67,13 +66,6 @@ const { data: info, pending } = useFetch('/api/posts/info', {
     slug: route.params.slug
   }  
 });
-// 时间
-const createdTime = computed(() => {
-  return new Date(info.value.createdAt)
-    .toDateString()
-    .substring(4)
-    .replace(/(?<=\d)\u0020(?=\d)/g, ', ');
-})
 
 // 编辑器配置
 MdEditor.config({
@@ -96,14 +88,19 @@ const editorTheme = computed(() => color.value);
 const scrollElement = ref(null);
 // URL哈希
 function onCatalogClick(e, t) {
+  const aP = document.querySelector(`a[href='#${t.text}']`).parentElement;
+  const html = document.querySelector('html');
+  html.scrollTo({
+    top: aP.offsetTop + 198,
+    behavior: 'smooth'
+  });
   history.replaceState({}, '', `${location.pathname}#${t.text}`);
 }
 // 页面挂载前
-onBeforeMount(() => {
-  // 滚动元素设置
-  // console.log(document.querySelector('.post-info'));
-  scrollElement.value = document.documentElement;
-});
+// onBeforeMount(() => {
+//   // 滚动元素设置
+//   scrollElement.value = document.documentElement;
+// });
 </script>
 
 <style lang="scss">
@@ -115,10 +112,20 @@ onBeforeMount(() => {
   .custom-catalog {
     position: fixed;
     top: 5.5rem;
-    right: 1rem;
-    border-left: 1px dashed #ccc;
+    right: 2rem;
+    padding-left: .5rem;
+    border-left: 1px dashed rgba($color: #999, $alpha: 0.3);
     .md-catalog-link {
-      padding: .5rem 1rem;
+      padding-right: .5rem;
+      padding-left: .5rem;
+      span {
+        font-size: 1rem;
+        opacity: 0.8;
+        &:hover {
+          opacity: 1;
+          color: unset;
+        }
+      }
     }
   }
 }
