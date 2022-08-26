@@ -14,14 +14,14 @@
       <div class="prose m-auto my-8">
         <!-- 正常回退上一层级路由 -->
         <nuxt-link
-          v-if="$route.path !== '/' && !$route.path.includes('/posts/')"
+          v-if="$route.path !== '/' && !isGoBackRoute"
           class="font-mono opacity-50 hover:opacity-75"
           :to="backTo">
           cd ..
         </nuxt-link>
         <!-- /posts/xxx 由于from路由不明确, 所以: 回退历史记录上一级 -->
         <nuxt-link
-          v-if="$route.path.includes('/posts/')"
+          v-if="isGoBackRoute"
           class="font-mono opacity-50 hover:opacity-75 cursor-pointer"
           @click="$router.go(-1)"
         >
@@ -50,6 +50,12 @@ const route = useRoute();
 
 // 返回路径
 const backTo = ref('');
+
+// go -1 路由
+const isGoBackRoute = computed(() => {
+  const paths = ['/posts/', '/categories/', '/tags/'];
+  return paths.some(path => route.path.includes(path));
+});
 
 // 监听路由变化
 watch(

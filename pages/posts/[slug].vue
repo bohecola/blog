@@ -36,8 +36,8 @@
         editor-id="md-editor"
         :theme="(editorTheme as Themes)"
         :showCodeRowNumber="true"
-        code-theme="atom"
         preview-theme="github"
+        code-theme="atom"
         preview-only
       />
       <!-- 导航目录 -->

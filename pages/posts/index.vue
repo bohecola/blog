@@ -2,7 +2,7 @@
   <div class="posts">
     <loading v-if="pending" />
     <template v-else>
-      <h1 class="mt-0 opacity-60">posts</h1>
+      <h1 class="mt-0 opacity-60">Posts</h1>
       <!-- 列表 -->
       <post-list :posts="posts.list" />
       <!-- 分页 -->
