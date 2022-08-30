@@ -1,6 +1,6 @@
 <template>
   <div class="links">
-    建设中...
+    敬请期待~
   </div>
 </template>
 

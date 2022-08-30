@@ -49,6 +49,19 @@ img, video {
   }
 }
 
+.prose :where(blockquote):not(:where(.not-prose,.not-prose *)) {
+  font-style: normal !important;
+}
+
+.github-theme {
+  a {
+    color: inherit !important;
+    &:hover{
+      text-decoration: unset !important;
+    }
+  }
+}
+
 .github-theme pre code {
   letter-spacing: 0 !important;
 }
