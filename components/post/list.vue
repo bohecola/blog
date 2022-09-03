@@ -1,4 +1,5 @@
 <template>
+  <!-- 列表 -->
   <ul>
     <post-item
       v-for="post of list"
@@ -19,9 +20,13 @@
 </template>
 
 <script lang="ts" setup>
-const { page, size, setPage } = usePagination();
-const { posts, setPosts, loadMore } = usePosts();
-
+const props = defineProps({
+  categorySlug: String,
+  tagSlugList: Array
+});
+const route = useRoute();
+const { page, size, setPage } = usePagination(route.path);
+const { posts, setPosts, loadMore } = usePosts(route.path);
 // 数据获取
 // 使用 useFetch 执行 refresh() 的时候不刷新 RequestBody
 // 而使用 useAsyncData 得到的 refresh 可以刷新 RequestBody
@@ -32,22 +37,24 @@ const { posts, setPosts, loadMore } = usePosts();
 //     size: size.value
 //   }
 // });
-
-const { pending, data, refresh } = useAsyncData('posts-page', () => $fetch('/api/posts/page', {
+const { pending, data, refresh } = useAsyncData(route.path, () => $fetch('/api/posts/page', {
   method: 'post',
   body: {
     page: page.value,
-    size: size.value
+    size: size.value,
+    categorySlug: props.categorySlug,
+    tagSlugList: props.tagSlugList
   }
 }));
 
+// 列表
 const list = computed(() => {
   // 第一页时，设置初始值
   if (page.value === 1) setPosts(data.value?.list);
-  // 列表
+  // state 数据
   return posts.value;
 });
-
+// 总数
 const total = computed(() => data.value?.pagination.total);
 // 翻页
 async function currentChange(val: number) {

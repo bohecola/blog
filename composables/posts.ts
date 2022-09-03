@@ -1,7 +1,7 @@
 import { Post } from "~~/types";
 
-export const usePosts = () => {
-  const posts = useState("posts", () => []);
+export const usePosts = (key?: string) => {
+  const posts = useState(`${key}-posts`, () => []);
 
   function setPosts(val: Post[]) {
     posts.value = val;

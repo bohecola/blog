@@ -1,6 +1,6 @@
-export const usePagination = () => {
-  const page = useState('page', () => 1);
-  const size = useState('size', () => 5);
+export const usePagination = (key?: string) => {
+  const page = useState(`${key}-page`, () => 1);
+  const size = useState(`${key}-size`, () => 5);
 
   function setPage(val: number) {
     page.value = val;

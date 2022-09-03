@@ -1,34 +1,15 @@
 <template>
   <div class="posts">
-    <loading v-if="pending" />
-    <template v-else>
-      <h1 class="mt-0 opacity-60">
-        {{ ($route.params.slug as string).toUpperCase().replace('-', ' ') }}
-      </h1>
-      <!-- 列表 -->
-      <post-list :posts="posts.list" />
-    </template>
+    <h1 class="mt-0 opacity-60">
+      {{ ($route.params.slug as string).toUpperCase().replace('-', ' ') }}
+    </h1>
+    <!-- 列表 -->
+    <post-list :category-slug="($route.params.slug as string)" />
   </div>
 </template>
 
 <script lang="ts" setup>
-// 页数
-const page = ref(1);
-// 数量
-const size = ref(100);
-// 路由
 const route = useRoute();
 // 文档标题
 useHead({ title: route.params.slug as string });
-
-// 数据获取
-const { data: posts, pending } = useFetch('/api/posts/page', {
-  method: 'post',
-  key: route.params.slug as string,
-  body: {
-    page: page.value,
-    size: size.value,
-    categorySlug: route.params.slug
-  }
-});
 </script>

@@ -2,7 +2,7 @@
   <div class="posts">
     <h1 class="mt-0 opacity-60">Posts</h1>
     <!-- 列表 -->
-    <post-list />
+    <post-list :key="$route.path" />
   </div>
 </template>
 
