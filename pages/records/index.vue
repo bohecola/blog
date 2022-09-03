@@ -9,10 +9,13 @@
         <!-- 年份 -->
         <div class="record-year">{{ year }}</div>
         <!-- 列表 -->
-        <post-list
-          :key="year"
-          :posts="posts"
-        />
+        <ul>
+          <post-item
+            v-for="post in posts"
+            :key="post.id"
+            :post="post"
+          />
+        </ul>
       </div>
     </template>
   </div>
