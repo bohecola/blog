@@ -1,7 +1,8 @@
 <template>
   <div class="pagination mt-6">
     <button v-if="showNext" w-10 mr-1 @click="next"> + </button>
-    <button v-if="showPrevious" w-10 @click="previous"> - </button>
+    <button v-if="showPrevious && hasPrevious" w-10 @click="previous"> - </button>
+    <span v-if="!showNext" class="opacity-35 no-more">没有更多了～</span>
   </div>
 </template>
 
@@ -11,7 +12,11 @@ const emit = defineEmits(["currentChange"]);
 const props = defineProps({
   page: Number,
   size: Number,
-  total: Number
+  total: Number,
+  hasPrevious: {
+    type: Boolean,
+    default: false
+  }
 });
 
 // 总页数
@@ -38,6 +43,9 @@ function next() {
 .pagination {
   button {
     cursor: pointer;
+  }
+  .no-more {
+    font-size: .875rem;
   }
 }
 </style>
