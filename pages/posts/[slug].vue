@@ -115,6 +115,12 @@ function onCatalogClick(e, t) {
     right: 2rem;
     padding-left: .5rem;
     border-left: 1px dashed rgba($color: #999, $alpha: 0.3);
+    max-width: 10rem;
+    max-height: calc(100vh - 5.5rem);
+    overflow-y: auto;
+    &::-webkit-scrollbar {
+      display: none;
+    }
     .md-catalog-link {
       padding-right: .5rem;
       padding-left: .5rem;
