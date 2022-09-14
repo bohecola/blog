@@ -1,9 +1,9 @@
 <template>
   <div class="posts">
-    <h1 class="mt-0 opacity-60">目录</h1>
-    <h2 class="mt-0 opacity-60">
+    <h2 class="mt-0 opacity-60">目录</h2>
+    <h3 class="mt-0 opacity-60">
       {{ ($route.params.slug as string).toUpperCase().replace('-', ' ') }}
-    </h2>
+    </h3>
     <!-- 列表 -->
     <post-list :category-slug="($route.params.slug as string)" />
   </div>
