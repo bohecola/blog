@@ -1,7 +1,6 @@
 <template>
   <div class="posts">
-    <h2 class="mt-0 opacity-60">标签</h2>
-    <h3 class="mt-0 opacity-60">{{ ($route.params.slug as string).toUpperCase().replace('-', ' ') }}</h3>
+    <h2 class="mt-0 opacity-60">{{ ($route.params.slug as string).toUpperCase().replace('-', ' ') }}</h2>
     <!-- 列表 -->
     <post-list :tag-slug-list="[$route.params.slug]" />
   </div>
