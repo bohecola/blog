@@ -17,8 +17,8 @@ jobs:
       - name: build app
         run: npm run build
 
-      - name: copy .output file with scp
-        uses: appleboy/scp-action@v0.0.1
+      - name: copy file via ssh password
+        uses: appleboy/scp-action@master
         with:
           host: ${{ secrets.REMOTE_HOST }}
           username: ${{ secrets.REMOTE_USER }}
