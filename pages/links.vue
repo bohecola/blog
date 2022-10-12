@@ -1,6 +1,9 @@
 <template>
   <div class="links">
-    敬请期待~
+    笔记：
+    <nuxt-link :to="`https://bohecola.github.io/notes/`" target="_blank">
+      https://bohecola.github.io/notes/
+    </nuxt-link>
   </div>
 </template>
 
