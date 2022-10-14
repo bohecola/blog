@@ -1,8 +1,8 @@
 <template>
   <div class="links">
-    笔记：
-    <nuxt-link :to="`https://bohecola.github.io/notes/`" target="_blank">
-      https://bohecola.github.io/notes/
+    笔记迁移：
+    <nuxt-link :to="`https://bohecola.github.io/manual/`" target="_blank">
+      https://bohecola.github.io/manual/
     </nuxt-link>
   </div>
 </template>
