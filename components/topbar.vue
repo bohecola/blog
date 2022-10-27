@@ -40,7 +40,7 @@
 
 <script lang="ts" setup>
 const topbars = ref([
-  { href: '/posts', title: 'Blog', text: 'Blog' },
+  { href: '/posts', title: 'Blog', text: '最近' },
   { href: '/categories', title: 'Categories', text: '目录' },
   { href: '/tags', title: 'Tags', text: '标签' },
   { href: '/records', title: 'Records', text: '归档' },
