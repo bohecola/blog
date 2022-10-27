@@ -36,7 +36,7 @@
             class="opacity-60 hover:opacity-75"
             to="https://beian.miit.gov.cn"
             target="_blank">
-            陕ICP备2022001579-1号
+            陕ICP备2022001579号-1
           </nuxt-link>
         </p>
       </div>
