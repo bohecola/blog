@@ -1,9 +1,9 @@
 <template>
   <div class="links">
-    笔记迁移：
-    <nuxt-link :to="`https://bohecola.github.io/manual/`" target="_blank">
-      https://bohecola.github.io/manual/
-    </nuxt-link>
+    语雀非会员对外开放不再免费了，抽时间用vitepress搭建了一个静态站点，以后笔记就迁移到这里了
+    <nuxt-link :to="`notes.colax.co`" target="_blank">
+      notes.colax.co
+    </nuxt-link> 
   </div>
 </template>
 
