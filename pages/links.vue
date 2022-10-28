@@ -1,9 +1,7 @@
 <template>
   <div class="links">
-    语雀非会员对外开放不再免费了<br>
-    抽时间用vitepress搭建了一个静态站点<br>
-    以后笔记就迁移到这里了<br>
-    <nuxt-link :to="`notes.colax.co`" target="_blank">
+    日常笔记：
+    <nuxt-link :to="`https://notes.colax.co`" target="_blank">
       notes.colax.co
     </nuxt-link> 
   </div>
