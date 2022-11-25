@@ -2,9 +2,9 @@
   <div class="profile">
     <loading v-if="pending" />
     <template v-else>
-      <h1>你好</h1>
+      <h1>Hello</h1>
       <img class="w-25 h-25 object-cover" :src="profile.avatar" alt="avatar" />
-      <p>我是 {{ profile.nickName }}, 很高兴认识你.</p>
+      <p>I'm {{ profile.nickName }}, nice to meet you.</p>
       <p>{{ profile.desc }}</p>
       <p>
         Email: 
