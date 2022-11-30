@@ -23,10 +23,10 @@
 const props = defineProps({
   categorySlug: String,
   tagSlugList: Array
-});
-const route = useRoute();
-const { page, size, setPage } = usePagination(route.path);
-const { posts, setPosts, loadMore } = usePosts(route.path);
+})
+const route = useRoute()
+const { page, size, setPage } = usePagination(route.path)
+const { posts, setPosts, loadMore } = usePosts(route.path)
 // 数据获取
 // 使用 useFetch 执行 refresh() 的时候不刷新 RequestBody
 // 而使用 useAsyncData 得到的 refresh 可以刷新 RequestBody
@@ -45,24 +45,24 @@ const { pending, data, refresh } = useAsyncData(route.path, () => $fetch('/api/p
     categorySlug: props.categorySlug,
     tagSlugList: props.tagSlugList
   }
-}));
+}))
 
 // 列表
 const list = computed(() => {
   // 第一页时，设置初始值
-  if (page.value === 1) setPosts(data.value?.list);
+  if (page.value === 1) { setPosts(data.value?.list) }
   // state 数据
-  return posts.value;
-});
+  return posts.value
+})
 // 总数
-const total = computed(() => data.value?.pagination.total);
+const total = computed(() => data.value?.pagination.total)
 // 翻页
-async function currentChange(val: number) {
+async function currentChange (val: number) {
   // 下一页
-  setPage(val);
+  setPage(val)
   // 刷新
-  await refresh();
+  await refresh()
   // 加载更多
-  loadMore(data.value.list);
+  loadMore(data.value.list)
 }
 </script>

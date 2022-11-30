@@ -1,17 +1,17 @@
-const { public: { baseURL } } = useRuntimeConfig();
-import { Response, Post } from "~~/types";
+import { Response, Post } from '~~/types'
+const { public: { baseURL } } = useRuntimeConfig()
 
 // 请求方法
 export default defineEventHandler(async (event) => {
   // 获取 query 参数
-  const query = useQuery(event);
+  const query = getQuery(event)
   // 详情数据
-  const result: Response<Post> = await $fetch(`${baseURL}/info?slug=${query.slug}`);
+  const result: Response<Post> = await $fetch(`${baseURL}/info?slug=${query.slug}`)
 
   result.data.createdAt = new Date(result.data.createdAt)
     .toDateString()
     .substring(4)
-    .replace(/(?<=\d)\u0020(?=\d)/g, ', ');
+    .replace(/(?<=\d)\u0020(?=\d)/g, ', ')
 
-  return result.data;
+  return result.data
 })

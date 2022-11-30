@@ -1,7 +1,7 @@
 <template>
   <div class="app-topbar">
     <logo />
-    <div class="spacer"></div>
+    <div class="spacer" />
     <div class="app-topbar__right">
       <template
         v-for="(item, index) of topbars"
@@ -20,17 +20,18 @@
           <div v-else-if="index === 4" md:hidden i-carbon-link />
         </nuxt-link>
 
-        <nuxt-link 
+        <nuxt-link
           v-if="[5].includes(index)"
           :title="item.title"
           :to="item.href"
           target="_blank"
-          lt-md:hidden>
-          <div v-if="index === 5"  i-carbon-logo-github />
+          lt-md:hidden
+        >
+          <div v-if="index === 5" i-carbon-logo-github />
           <div v-else-if="index === 6" lt-md:hidden i-la-rss-square />
         </nuxt-link>
 
-        <nuxt-link class="select-none" v-if="index === topbars.length - 1">
+        <nuxt-link v-if="index === topbars.length - 1" class="select-none">
           <dark-toggle :title="item.title" />
         </nuxt-link>
       </template>
@@ -47,8 +48,8 @@ const topbars = ref([
   { href: '/links', title: 'Links', text: 'Links' },
   { href: 'https://github.com/bohecola', title: 'Github', text: '' },
   { href: '', title: 'RSS', text: '' },
-  { href: '', title: 'Toggle Color Scheme', text: '' },
-]);
+  { href: '', title: 'Toggle Color Scheme', text: '' }
+])
 </script>
 
 <style lang="scss" scoped>

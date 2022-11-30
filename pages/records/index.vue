@@ -5,9 +5,12 @@
       <div
         v-for="(posts, year) of records"
         :key="year"
-        class="record">
+        class="record"
+      >
         <!-- 年份 -->
-        <div class="record-year">{{ year }}</div>
+        <div class="record-year">
+          {{ year }}
+        </div>
         <!-- 列表 -->
         <ul>
           <post-item
@@ -23,9 +26,9 @@
 
 <script lang="ts" setup>
 // 文档标题
-useHead({ title: 'records' });
+useHead({ title: 'records' })
 // 归档数据
-const { data: records, pending } = useFetch('/api/records');
+const { data: records, pending } = useFetch('/api/records')
 </script>
 
 <style lang="scss" scoped>

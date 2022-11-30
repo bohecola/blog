@@ -7,7 +7,7 @@
       <!-- 正文 -->
       <article>
         <div class="prose m-auto">
-          <slot></slot>
+          <slot />
         </div>
       </article>
       <!-- 返回 -->
@@ -16,7 +16,8 @@
         <nuxt-link
           v-if="$route.path !== '/' && !isGoBackRoute"
           class="font-mono opacity-50 hover:opacity-75"
-          :to="backTo">
+          :to="backTo"
+        >
           cd ..
         </nuxt-link>
         <!-- /posts/xxx 由于from路由不明确, 所以: 回退历史记录上一级 -->
@@ -29,13 +30,14 @@
         </nuxt-link>
       </div>
       <!-- 备案 -->
-      <div class="prose m-auto">      
+      <div class="prose m-auto">
         <p class="text-sm">
           <span class="opacity-60 mr-1">© 2021-PRESENT Canday</span>
           <nuxt-link
             class="opacity-60 hover:opacity-75"
             to="https://beian.miit.gov.cn"
-            target="_blank">
+            target="_blank"
+          >
             陕ICP备2022001579号-1
           </nuxt-link>
         </p>
@@ -46,27 +48,27 @@
 
 <script lang="ts" setup>
 // 路由
-const route = useRoute();
+const route = useRoute()
 
 // 返回路径
-const backTo = ref('');
+const backTo = ref('')
 
 // go -1 路由
 const isGoBackRoute = computed(() => {
-  const paths = ['/posts/', '/categories/', '/tags/'];
-  return paths.some(path => route.path.includes(path));
-});
+  const paths = ['/posts/', '/categories/', '/tags/']
+  return paths.some(path => route.path.includes(path))
+})
 
 // 监听路由变化
 watch(
-  () => route.fullPath, 
-  (newVal, oldVal) => {
+  () => route.fullPath,
+  (newVal) => {
     // 上级路径
-    const upperPath = newVal.substring(0, newVal.lastIndexOf('/')) || '/';
+    const upperPath = newVal.substring(0, newVal.lastIndexOf('/')) || '/'
     // 返回
-    backTo.value = upperPath;
+    backTo.value = upperPath
   }, { immediate: true }
-);
+)
 </script>
 
 <style lang="scss">

@@ -1,10 +1,10 @@
-const { public: { baseURL } } = useRuntimeConfig();
-import { Response, Category } from "~~/types";
+import { Response, Category } from '~~/types'
+const { public: { baseURL } } = useRuntimeConfig()
 
 // 请求方法
 export default defineEventHandler(async (event) => {
   // 目录数据
-  const result: Response<Category[]> = await $fetch(`${baseURL}/categories`);
+  const result: Response<Category[]> = await $fetch(`${baseURL}/categories`)
 
-  return result.data;
+  return result.data
 })

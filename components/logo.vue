@@ -1,7 +1,7 @@
 <template>
   <nuxt-link to="/" class="logo">
-    <img dark:hidden src="/logo.svg" />
-    <img light:hidden src="/logo-dark.svg" />
+    <img dark:hidden src="/logo.svg">
+    <img light:hidden src="/logo-dark.svg">
   </nuxt-link>
 </template>
 
