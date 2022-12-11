@@ -3,11 +3,11 @@
     日常笔记：
     <nuxt-link :to="`https://notes.colax.co`" target="_blank">
       notes.colax.co
-    </nuxt-link> 
+    </nuxt-link>
   </div>
 </template>
 
 <script lang="ts" setup>
 // 文档标题
-useHead({ title: 'links' });
+useHead({ title: 'links' })
 </script>
