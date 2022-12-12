@@ -18,7 +18,7 @@ export default defineEventHandler(async (event) => {
   })
 
   result.data.list = result.data.list.map((post) => {
-    post.createdAt = new Date(post.createdAt)
+    post.createdAt = new Date(post.createdAt as string)
       .toDateString()
       .substring(4)
       .replace(/(?<=\d)\u0020(?=\d)/g, ', ')

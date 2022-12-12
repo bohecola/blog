@@ -91,11 +91,11 @@ const editorTheme = computed(() => color.value)
 // 滚动元素
 // const scrollElement = ref(null)
 // URL哈希
-function onCatalogClick (_, t) {
-  const aP = document.querySelector(`a[href='#${t.text}']`).parentElement
+function onCatalogClick (_: any, t: { text: string; }) {
+  const aP = document.querySelector(`a[href='#${t.text}']`)!.parentElement
   const html = document.querySelector('html')
-  html.scrollTo({
-    top: aP.offsetTop + 198,
+  html!.scrollTo({
+    top: aP!.offsetTop + 198,
     behavior: 'smooth'
   })
   history.replaceState({}, '', `${location.pathname}#${t.text}`)

@@ -8,7 +8,7 @@ export default defineEventHandler(async (event) => {
   // 详情数据
   const result: Response<Post> = await $fetch(`${baseURL}/info?slug=${query.slug}`)
 
-  result.data.createdAt = new Date(result.data.createdAt)
+  result.data.createdAt = new Date(result.data.createdAt as string)
     .toDateString()
     .substring(4)
     .replace(/(?<=\d)\u0020(?=\d)/g, ', ')
