@@ -3,7 +3,7 @@
   "scripts": {
     "prepare": "husky install",
     "build": "nuxt build",
-    "dev": "nuxt dev --port 9527",
+    "dev": "nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "commitlint": "commitlint --config .commitlintrc.js -e -V",
@@ -16,12 +16,15 @@
     }
   },
   "devDependencies": {
+    "@bohecola/eslint-config": "^0.1.5",
+    "@bohecola/eslint-config-ts": "^0.1.5",
     "@commitlint/cli": "^17.1.2",
     "@commitlint/config-conventional": "^17.1.0",
     "@iconify-json/carbon": "^1.1.7",
     "@iconify-json/la": "^1.1.2",
     "@iconify-json/material-symbols": "^1.1.14",
     "@iconify-json/ri": "^1.1.3",
+    "@nuxt/content": "^2.3.0",
     "@nuxtjs/color-mode": "^3.2.0",
     "@nuxtjs/eslint-config": "^12.0.0",
     "@nuxtjs/eslint-config-typescript": "^12.0.0",

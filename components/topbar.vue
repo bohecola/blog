@@ -1,58 +1,48 @@
 <template>
-  <div class="app-topbar">
+  <header class="app-topbar">
     <logo />
     <div class="spacer" />
     <div class="app-topbar__right">
-      <template
-        v-for="(item, index) of topbars"
-        :key="index"
+      <nuxt-link
+        v-for="item in items"
+        :key="item.path"
+        :to="item.path"
+        :title="item.title"
+        :class="{
+          active: item.path !== '/'
+            ? $route.path.includes(item.path)
+            : $route.path === '/' || $route.path.includes('/blog/')
+        }"
       >
-        <nuxt-link
-          v-if="[0, 1, 2, 3, 4].includes(index)"
-          :to="item.href"
-          :title="item.title"
-        >
-          <span v-if="item.text" class="lt-md:hidden">{{ item.text }}</span>
-          <div v-if="index === 0" md:hidden i-ri-article-line />
-          <div v-else-if="index === 1" md:hidden i-ri-book-line />
-          <div v-else-if="index === 2" md:hidden i-carbon-tag-group />
-          <div v-else-if="index === 3" md:hidden i-carbon-archive />
-          <div v-else-if="index === 4" md:hidden i-carbon-link />
-        </nuxt-link>
+        <span class="lt-md:hidden">{{ item.title }}</span>
+        <div :class="['md:hidden', item.icon]" />
+      </nuxt-link>
 
-        <nuxt-link
-          v-if="[5].includes(index)"
-          :title="item.title"
-          :to="item.href"
-          target="_blank"
-          lt-md:hidden
-        >
-          <div v-if="index === 5" i-carbon-logo-github />
-          <div v-else-if="index === 6" lt-md:hidden i-la-rss-square />
-        </nuxt-link>
-
-        <nuxt-link v-if="index === topbars.length - 1" class="select-none">
-          <dark-toggle :title="item.title" />
-        </nuxt-link>
-      </template>
+      <nuxt-link
+        title="Github"
+        to="https://github.com/bohecola"
+        target="_blank"
+      >
+        <div i-carbon-logo-github />
+      </nuxt-link>
+      <nuxt-link class="select-none">
+        <dark-toggle title="Toggle Color Scheme" />
+      </nuxt-link>
     </div>
-  </div>
+  </header>
 </template>
 
 <script lang="ts" setup>
-const topbars = ref([
-  { href: '/posts', title: 'Blog', text: 'Post' },
-  { href: '/categories', title: 'Categories', text: '目录' },
-  { href: '/tags', title: 'Tags', text: '标签' },
-  { href: '/records', title: 'Records', text: '归档' },
-  { href: '/links', title: 'Links', text: 'Links' },
-  { href: 'https://github.com/bohecola', title: 'Github', text: '' },
-  { href: '', title: 'RSS', text: '' },
-  { href: '', title: 'Toggle Color Scheme', text: '' }
-])
+const items = ref([
+  { path: "/", title: "Blog", icon: "i-ri-article-line" },
+  { path: "/links", title: "Links", icon: "i-carbon-link" },
+  { path: "/about", title: "About", icon: "i-carbon-user-profile" }
+  // { path: "/categories", title: "Categories", icon: "i-ri-book-line" },
+  // { path: "/tags", title: "Tags", icon: "i-carbon-tag-group" },
+]);
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .app-topbar {
   padding: 2rem;
   width: 100%;
@@ -69,16 +59,11 @@ const topbars = ref([
 
     a {
       opacity: .6;
-      color: inherit;
       transition: opacity .2s ease;
       cursor: pointer;
-      &:hover {
+      &:hover, &.active {
         opacity: 1;
       }
-    }
-
-    & > * {
-      margin: auto;
     }
   }
 
