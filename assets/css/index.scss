@@ -1,77 +1,9 @@
-@import './theme.scss';
-
-* {
-  padding: 0;
-  margin: 0;
+.page-enter-active {
+ animation: enter 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
 }
-
-html {
-  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
-  Helvetica Neue, Arial, Noto Sans, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
-  Segoe UI Symbol, "Noto Color Emoji";
+.page-leave-active {
+ animation: leave 0.3s;
 }
-
-a {
-  text-decoration: none;
-}
-
-ol, ul, menu {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  & > * {
-    &:first-child { margin-top: 0 }
-    &:last-child { margin-bottom: 0 }
-  }
-}
-
-img, video {
-  max-width: 100%;
-  height: auto;
-}
-
-.md {
-  --md-bk-color: transparent !important;
-  h1, h2, h3, h4, h5, h6 {
-    a {
-      border-bottom: none;
-    }
-  }
-}
-
-.prose :where(pre):not(:where(.not-prose,.not-prose *)) {
-  padding: 0 !important;
-}
-
-.prose :where(:not(pre)>code):not(:where(.not-prose,.not-prose *)) {
-  &::before, &::after {
-    content: "" !important;
-  }
-}
-
-.prose :where(blockquote):not(:where(.not-prose,.not-prose *)) {
-  font-style: normal !important;
-}
-
-.github-theme {
-  a {
-    color: inherit !important;
-    &:hover{
-      text-decoration: unset !important;
-    }
-  }
-}
-
-.github-theme pre code {
-  letter-spacing: 0 !important;
-}
-
-// .page-enter-active {
-//  animation: enter 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
-// }
-// .page-leave-active {
-//  animation: leave 0.3s;
-// }
 
 // 动画在快速点击切换路由的时候，dom insertBefore 会报错
 @keyframes enter {
@@ -95,3 +27,6 @@ img, video {
     opacity: 0;
   }
 }
+
+@import './theme.scss';
+@import './reset.scss';

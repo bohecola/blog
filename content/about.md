@@ -2,7 +2,7 @@
 title: About
 ---
 
-# Hello
+# About
 
 :avatar{url=/img/avatar.jpeg}
 

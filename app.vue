@@ -1,14 +1,12 @@
 <template>
   <nuxt-layout name="default">
     <NuxtLoadingIndicator />
-    <ContentDoc class="prose m-auto" />
+    <NuxtPage />
   </nuxt-layout>
 </template>
 
 <script setup lang="ts">
 useHead({
-  titleTemplate: (titleChunk) => {
-    return titleChunk ? `${titleChunk} - Cola` : "Cola";
-  }
+  titleTemplate: titleChunk => titleChunk ? `${titleChunk} - Cola` : "Cola"
 });
 </script>

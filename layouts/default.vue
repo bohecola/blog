@@ -1,12 +1,12 @@
 <template>
   <div class="app">
     <topbar />
-    <main class="py-10 px-7">
+    <main class="px-5">
       <!-- 正文 -->
-      <article>
+      <article class="prose m-auto">
         <slot />
       </article>
-      <!-- 返回 -->
+      <!-- 返回按钮 -->
       <div class="prose m-auto my-8">
         <nuxt-link
           v-if="$route.path.lastIndexOf('/') > 0"
@@ -16,8 +16,8 @@
           cd ..
         </nuxt-link>
       </div>
-      <!-- 备案 -->
-      <div class="prose m-auto">
+      <!-- 底部 -->
+      <div class="prose m-auto mb-4">
         <p class="text-sm">
           <span class="opacity-60 mr-1">© 2021-PRESENT COLAX</span>
           <nuxt-link

@@ -4,18 +4,17 @@
     <div class="spacer" />
     <div class="app-topbar__right">
       <nuxt-link
-        v-for="item in items"
-        :key="item.path"
-        :to="item.path"
-        :title="item.title"
+        v-for="link in navigation"
+        :key="link.path"
+        :to="link.path"
         :class="{
-          active: item.path !== '/'
-            ? $route.path.includes(item.path)
+          active: link.path !== '/'
+            ? $route.path.includes(link.path)
             : $route.path === '/' || $route.path.includes('/blog/')
         }"
       >
-        <span class="lt-md:hidden">{{ item.title }}</span>
-        <div :class="['md:hidden', item.icon]" />
+        <span class="lt-md:hidden">{{ link.title }}</span>
+        <div :class="['md:hidden', link.icon]" />
       </nuxt-link>
 
       <nuxt-link
@@ -33,13 +32,12 @@
 </template>
 
 <script lang="ts" setup>
-const items = ref([
-  { path: "/", title: "Blog", icon: "i-ri-article-line" },
-  { path: "/links", title: "Links", icon: "i-carbon-link" },
-  { path: "/about", title: "About", icon: "i-carbon-user-profile" }
-  // { path: "/categories", title: "Categories", icon: "i-ri-book-line" },
-  // { path: "/tags", title: "Tags", icon: "i-carbon-tag-group" },
-]);
+const { navigation } = useAppConfig();
+// const navigation = ref([
+//   { path: '/', title: 'Blog', icon: 'i-ri-article-line'  },
+//   { path: '/links', title: 'Links', icon: 'i-carbon-link'  },
+//   { path: '/about', title: 'About', icon: 'i-carbon-user-profile'  },
+// ])
 </script>
 
 <style lang="scss">
