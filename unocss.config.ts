@@ -13,7 +13,11 @@ export default defineConfig({
   shortcuts: [
     ["btn", "px-4 py-1 rounded inline-block bg-teal-600 text-white cursor-pointer hover:bg-teal-700 disabled:cursor-default disabled:bg-gray-600 disabled:opacity-50"],
     ["icon-btn", "inline-block cursor-pointer select-none opacity-75 transition duration-200 ease-in-out hover:opacity-100 hover:text-teal-600"],
-    ["badge", "px-2 py-1 cursor-pointer rounded"]
+    ["tag", "px-2 py-1 cursor-pointer rounded"],
+    ["tag-normal", "text-cyan-7 bg-cyan-7 hover:text-cyan-6 dark:text-cyan-6 dark:hover:text-cyan-5 bg-opacity-20"],
+    ["tag-active", "text-cyan-4 bg-cyan-7 hover:bg-cyan-6 dark:text-cyan-5 dark:bg-cyan-9 dark:hover:bg-cyan-8"],
+    ["filter-normal", "text-sky-7 bg-sky-7 hover:text-sky-6 dark:text-sky-6 dark:hover:text-sky-5 bg-opacity-20"],
+    ["filter-active", "text-sky-4 bg-sky-7 hover:bg-sky-6 dark:text-sky-5 dark:bg-sky-9 dark:hover:bg-sky-8"]
   ],
   presets: [
     presetUno(),
