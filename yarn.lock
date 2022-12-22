@@ -652,6 +652,13 @@
   resolved "https://registry.npmmirror.com/@humanwhocodes/object-schema/-/object-schema-1.2.1.tgz#b520529ec21d8e5945a1851dfd1c32e94e39ff45"
   integrity sha512-ZnQMnLV4e7hDlUvw8H+U8ASL02SS2Gn6+9Ac3wGGLIe7+je2AeAOxPY+izIPJDfFDb7eDjev0Us8MO1iFRN8hA==
 
+"@iconify-json/ant-design@^1.1.4":
+  version "1.1.4"
+  resolved "https://registry.npmjs.org/@iconify-json/ant-design/-/ant-design-1.1.4.tgz#5e62c880cfda8b2f850e02dd892db8e92b572ff9"
+  integrity sha512-bx8sSFrrJloQUdStRbBn3TMmeKWfbx51aVDF1fEOH/LGKXGiBmtybURjlTdQPwE7S0zhlXcve+agYHuGb2Q9hQ==
+  dependencies:
+    "@iconify/types" "*"
+
 "@iconify-json/carbon@^1.1.7":
   version "1.1.7"
   resolved "https://registry.yarnpkg.com/@iconify-json/carbon/-/carbon-1.1.7.tgz#a771061eac265d24c892782efd9b27b7aed45721"

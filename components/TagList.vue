@@ -40,8 +40,8 @@ function tagClickHandler (clickedTag: string) {
       :class="[
         'tag',
         isInQueryParams('tag', tag)
-          ? 'tag-active'
-          : 'tag-normal'
+          ? 'cyan-active'
+          : 'cyan-normal'
       ]"
       @click="tagClickHandler(tag)"
     >
