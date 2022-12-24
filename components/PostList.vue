@@ -55,3 +55,10 @@ watch(() => route.query, async () => {
     </li>
   </ul>
 </template>
+
+<style lang="scss" scoped>
+ul.post-list {
+  list-style: none;
+  padding-left: 0;
+}
+</style>

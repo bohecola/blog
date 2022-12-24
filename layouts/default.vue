@@ -1,7 +1,7 @@
 <template>
   <div class="app">
     <topbar />
-    <main class="px-5">
+    <main class="px-7">
       <!-- 正文 -->
       <article class="prose m-auto">
         <slot />
@@ -32,36 +32,3 @@
     </main>
   </div>
 </template>
-
-<style lang="scss">
-.app {
-  header {
-    position: sticky;
-    top: 0;
-    z-index: 1;
-    backdrop-filter: blur(10px);
-  }
-}
-.prose {
-  &>:first-child {
-    margin-top: 0;
-  }
-  &>:last-child {
-    margin-bottom: 0;
-  }
-  ol, ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-  }
-  a {
-    font-weight: inherit;
-    text-decoration: none;
-    transition: border .3s ease-in-out;
-    border-bottom: 1px solid rgba(125,125,125,.3);
-    &:hover {
-      border-color: rgb(125,125,125);;
-    }
-  }
-}
-</style>

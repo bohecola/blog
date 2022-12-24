@@ -5,6 +5,7 @@ export default defineNuxtConfig({
     "@nuxt/content"
   ],
   content: {
+    documentDriven: true,
     markdown: {
       mdc: true,
       toc: {
@@ -17,12 +18,7 @@ export default defineNuxtConfig({
       }
     },
     highlight: {
-      theme: "material-palenight"
-    }
-  },
-  router: {
-    options: {
-      // linkActiveClass: "active"
+      theme: "one-dark-pro"
     }
   },
   experimental: {

@@ -40,7 +40,7 @@ const { navigation } = useAppConfig();
 // ])
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .app-topbar {
   padding: 2rem;
   width: 100%;
@@ -56,7 +56,9 @@ const { navigation } = useAppConfig();
     grid-auto-flow: column;
 
     a {
+      color: inherit;
       opacity: .6;
+      text-decoration: none;
       transition: opacity .2s ease;
       cursor: pointer;
       &:hover, &.active {
