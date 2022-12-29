@@ -3,7 +3,7 @@
     <topbar />
     <main class="px-7">
       <!-- 正文 -->
-      <article class="prose m-auto">
+      <article class="main-content prose m-auto">
         <slot />
       </article>
       <!-- 返回按钮 -->
@@ -32,3 +32,9 @@
     </main>
   </div>
 </template>
+
+<style lang="scss" scoped>
+.main-content {
+  min-height: calc(100vh - 156px);
+}
+</style>

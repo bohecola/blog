@@ -23,18 +23,16 @@ const { copied, copyHandler } = useCopy();
 
 <template>
   <details open>
-    <summary class="flex">
-      <span class="inline-block opacity-50 hover:opacity-70 i-material-symbols-keyboard-arrow-down rotate-270 open-rotate-0" />
+    <summary class="flex color-gray dark:color-gray-3">
+      <span class="inline-block opacity-70 i-material-symbols-keyboard-arrow-down rotate-270" />
       <div>{{ props.filename }}</div>
-      <div class="ml-auto flex items-center">
-        <span v-show="copied" class="mr-1 text-3 font-400 opacity-70">Copied</span>
-        <button
-          class="flex items-center border-none cursor-pointer bg-inherit color-inherit opacity-50 hover:opacity-70"
-          @click="copyHandler(props.code)"
-        >
-          <i :class="['inline-block', copied ? 'i-carbon-checkmark color-teal' : 'i-carbon-copy']" />
-        </button>
-      </div>
+      <button
+        class="ml-auto p-0 flex items-center border-none w-4 h-4 cursor-pointer bg-inherit color-inherit opacity-70"
+        :disabled="copied"
+        @click="copyHandler(props.code)"
+      >
+        <i :class="['inline-block', copied ? 'i-carbon-checkmark color-teal-6 dark:color-teal' : 'i-carbon-copy']" />
+      </button>
     </summary>
     <slot />
   </details>
