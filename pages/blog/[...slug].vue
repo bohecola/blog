@@ -1,23 +1,32 @@
 <template>
   <div class="doc-wrap">
-    <ContentDoc class="content-doc">
+    <ContentDoc>
+      <template #default="{ doc }">
+        <h1>{{ doc.title }}</h1>
+
+        <div class="flex items-center">
+          <span class="opacity-50 mr-4">
+            {{ dateFormat(doc.date) }}
+          </span>
+          <TagList :data="doc.tags" />
+        </div>
+        <p class="opacity-50">
+          {{ doc.description }}
+        </p>
+
+        <ContentRenderer class="content-renderer" :value="doc" />
+        <Toc class="lt-md:hidden" :toc="doc.body.toc" />
+      </template>
       <template #not-found>
         <h1>Document not found</h1>
       </template>
       <template #empty>
-        Document is empty
+        <h1>Document is empty</h1>
       </template>
     </ContentDoc>
   </div>
 </template>
 
 <script setup lang="ts">
-const { toc } = useContent();
+import { dateFormat } from "@/utils";
 </script>
-
-<style lang="scss">
-.content-doc {
-  ul ul { list-style: circle; }
-  ul ul ul { list-style: square; }
-}
-</style>

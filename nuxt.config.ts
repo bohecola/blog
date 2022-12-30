@@ -5,7 +5,6 @@ export default defineNuxtConfig({
     "@nuxt/content"
   ],
   content: {
-    documentDriven: true,
     markdown: {
       mdc: true,
       toc: {

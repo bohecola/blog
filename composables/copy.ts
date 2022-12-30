@@ -9,11 +9,12 @@ export function useCopy () {
       });
   }
 
-  function reset () {
+  function reset (delay = 0.9) {
+    const second = 1000;
     const timer = setTimeout(() => {
       copied.value = false;
       clearTimeout(timer);
-    }, 800);
+    }, delay * second);
   }
 
   return {
