@@ -1,1 +1,1 @@
-# Links
+- [学习笔记](https://notes.colax.co)

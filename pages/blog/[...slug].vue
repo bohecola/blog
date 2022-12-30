@@ -1,8 +1,20 @@
 <template>
   <div class="doc-wrap">
-    <ContentDoc class="content-doc">
+    <ContentDoc>
       <template #default="{ doc }">
-        <ContentRenderer :value="doc" />
+        <h1>{{ doc.title }}</h1>
+
+        <div class="flex items-center">
+          <span class="opacity-50 mr-4">
+            {{ dateFormat(doc.date) }}
+          </span>
+          <TagList :data="doc.tags" />
+        </div>
+        <p class="opacity-50">
+          {{ doc.description }}
+        </p>
+
+        <ContentRenderer class="content-renderer" :value="doc" />
         <Toc class="lt-md:hidden" :toc="doc.body.toc" />
       </template>
       <template #not-found>
@@ -16,6 +28,5 @@
 </template>
 
 <script setup lang="ts">
-// const route = useRoute();
-// const { data } = await useAsyncData(`${route.path}`, () => queryContent(`${route.path}`).findOne());
+import { dateFormat } from "@/utils";
 </script>

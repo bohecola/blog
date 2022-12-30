@@ -4,10 +4,13 @@ defineProps<{
   data: string[]
 }>();
 
+// 路由
 const route = useRoute();
 
+// 活跃标签
 const { activeTags } = useActiveStates();
 
+// 挂载
 onMounted(() => {
   const { tag } = route.query;
   if (tag) {
@@ -17,11 +20,19 @@ onMounted(() => {
   }
 });
 
+// 标签点击
 function tagClickHandler (clickedTag: string) {
+  if (route.path !== "/") {
+    activeTags.value = [];
+  }
+
   const tagIndex = findIndex(activeTags.value, clickedTag);
-  tagIndex > -1
-    ? activeTags.value.splice(tagIndex, 1)
-    : activeTags.value.push(clickedTag);
+
+  if (tagIndex > -1) {
+    activeTags.value.splice(tagIndex, 1);
+  } else {
+    activeTags.value.push(clickedTag);
+  }
 
   navigateTo({
     path: "/",

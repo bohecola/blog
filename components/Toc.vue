@@ -15,7 +15,7 @@ defineProps<{ toc: Toc }>();
   position: fixed;
   top: 50%;
   transform: translateY(-50%);
-  right: 3.5rem;
+  right: 4.25rem;
   max-height: 19.375rem;
   overflow-y: auto;
   opacity: 0;
