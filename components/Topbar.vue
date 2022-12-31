@@ -1,6 +1,6 @@
 <template>
   <header class="app-topbar">
-    <logo />
+    <!-- <logo /> -->
     <div class="spacer" />
     <div class="app-topbar__right">
       <nuxt-link

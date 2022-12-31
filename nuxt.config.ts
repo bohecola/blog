@@ -32,8 +32,8 @@ export default defineNuxtConfig({
     head: {
       meta: [
         { name: "viewport", content: "width=device-width, initial-scale=1" },
-        { name: "keywords", content: "bohecola,个人博客,个人空间" },
-        { name: "description", content: "bohecola的个人博客,bohecola的个人空间" }
+        { name: "keywords", content: "colax,个人博客,个人空间" },
+        { name: "description", content: "colax的个人博客,colax的个人空间" }
       ],
       script: [
         {
