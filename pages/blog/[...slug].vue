@@ -29,5 +29,9 @@
 </template>
 
 <script setup lang="ts">
+import mediumZoom from "medium-zoom";
 import { dateFormat } from "@/utils";
+onMounted(() => {
+  mediumZoom("[data-zoomable]");
+});
 </script>
