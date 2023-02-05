@@ -1,5 +1,12 @@
 <template>
-  <img :src="src" :alt="alt" :width="width" :height="height">
+  <img
+    data-zoomable
+    class="block my-3 mx-auto"
+    :src="src"
+    :alt="alt"
+    :width="width"
+    :height="height"
+  >
 </template>
 
 <script setup lang="ts">
