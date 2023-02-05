@@ -12,7 +12,6 @@ html {
 
 img, video {
   max-width: 100%;
-  height: auto;
 }
 
 a.header-achor {
@@ -44,5 +43,8 @@ h2, h3, h4, h5, h6 {
     &:hover {
       border-color: rgb(125,125,125);;
     }
+  }
+  blockquote {
+    border-left: 0.25em solid #7d7d7d4d;
   }
 }

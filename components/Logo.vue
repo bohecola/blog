@@ -1,7 +1,6 @@
 <template>
   <nuxt-link to="/" class="logo">
-    <img dark:hidden src="/logo.svg">
-    <img light:hidden src="/logo-dark.svg">
+    <img src="/logo.svg">
   </nuxt-link>
 </template>
 
@@ -12,5 +11,10 @@
     margin: 1.5rem;
     user-select: none;
     position: absolute;
+    border-radius: 50%;
+    transition: transform 0.3s ease-in;
+    &:hover {
+      transform: rotate(360deg);
+    }
   }
 </style>

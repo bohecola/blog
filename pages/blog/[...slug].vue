@@ -1,5 +1,6 @@
 <template>
   <div class="doc-wrap">
+    <BackToTop />
     <ContentDoc>
       <template #default="{ doc }">
         <h1>{{ doc.title }}</h1>
