@@ -39,6 +39,6 @@ onMounted(() => {
 
   watch(color, (newColor) => {
     zoom.update({ background: newColor.value === "dark" ? "#091a28" : "#fff" });
-  });
+  }, { immediate: true });
 });
 </script>
