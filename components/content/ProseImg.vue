@@ -1,12 +1,17 @@
 <template>
-  <img
-    data-zoomable
-    class="block my-3 mx-auto"
-    :src="src"
-    :alt="alt"
-    :width="width"
-    :height="height"
-  >
+  <figure>
+    <img
+      data-zoomable
+      class="block my-3 mx-auto"
+      :src="src"
+      :alt="alt"
+      :width="width"
+      :height="height"
+    >
+    <figcaption v-if="alt" class="text-center font-light">
+      {{ alt }}
+    </figcaption>
+  </figure>
 </template>
 
 <script setup lang="ts">
