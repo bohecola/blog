@@ -5,6 +5,13 @@
  animation: leave 0.3s;
 }
 
+.c-red {
+  color: #fb7185;
+}
+.c-purple {
+  color: #7e22ce;
+}
+
 // 动画在快速点击切换路由的时候，dom insertBefore 会报错
 @keyframes enter {
   from {
