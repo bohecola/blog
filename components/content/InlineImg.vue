@@ -10,23 +10,21 @@ defineProps({
   },
   width: {
     type: [String, Number],
-    default: undefined
+    default: "20"
   },
   height: {
     type: [String, Number],
-    default: undefined
+    default: "20"
   }
 });
 </script>
 
 <template>
-  <img class="inline-img" :src="src" :alt="alt">
+  <img class="inline-img" :src="src" :alt="alt" :height="height" :width="width">
 </template>
 
 <style lang="scss" scoped>
   .inline-img {
     margin-bottom: -2px;
-    width: 20px;
-    height: 20px;
   }
 </style>
