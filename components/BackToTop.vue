@@ -6,7 +6,9 @@ const clicked = ref(false);
 
 const scrollHandler = throttle(function () {
   const h = document.documentElement.scrollTop || document.body.scrollTop;
-  visible.value = h > 300;
+  if (!clicked.value) {
+    visible.value = h > 300;
+  }
 }, 200);
 
 onMounted(() => {
@@ -17,15 +19,15 @@ onUnmounted(() => {
   scrollHandler.cancel();
 });
 
+let timer: any = null;
 function backToTop () {
-  scrollTo({
-    top: 0
-  });
+  timer && clearTimeout(timer);
   clicked.value = true;
-  const timer = setTimeout(() => {
+  scrollTo({ top: 0 });
+  timer = setTimeout(() => {
     clicked.value = false;
-    clearTimeout(timer);
-  }, 1000);
+    visible.value = false;
+  }, 1900);
 }
 </script>
 
@@ -42,7 +44,8 @@ function backToTop () {
   right: 1.75em;
   bottom: 1.25em;
   opacity: 0;
-  background: url('/assets/img/rocket.png') no-repeat;
+  z-index: 1;
+  background: url('/assets/img/rocket.svg') no-repeat;
   background-size: contain;
   transition: all 0.2s ease-in-out;
   cursor: pointer;

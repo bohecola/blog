@@ -23,11 +23,11 @@ ul {
   list-style: none;
   margin: 0;
   li {
-    max-width: 13ch;
-    overflow: hidden;
+    max-width: 15ch;
+    font-size: .875rem;
     white-space: nowrap;
     text-overflow: ellipsis;
-    font-size: .875rem;
+    overflow-x: hidden;
   }
 }
 </style>
