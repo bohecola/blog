@@ -49,7 +49,7 @@ function tagClickHandler (clickedTag: string) {
       v-for="tag in data"
       :key="tag"
       :class="[
-        'tag',
+        'tag select-none',
         isInQueryParams('tag', tag)
           ? 'cyan-active'
           : 'cyan-normal'
