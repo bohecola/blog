@@ -41,7 +41,7 @@ export default defineNuxtConfig({
             var _hmt = _hmt || [];
             (function() {
               var hm = document.createElement("script");
-              hm.src = "https://hm.baidu.com/hm.js?84cb0c8528bb5b73dce68df6d549118d";
+              hm.src = "https://hm.baidu.com/hm.js?3a91eb11756100f0c4566114f639c8ed";
               var s = document.getElementsByTagName("script")[0]; 
               s.parentNode.insertBefore(hm, s);
             })();
