@@ -8,8 +8,8 @@ export default defineNuxtConfig({
     markdown: {
       mdc: true,
       toc: {
-        depth: 2,
-        searchDepth: 2
+        depth: 3,
+        searchDepth: 3
       },
       anchorLinks: {
         depth: 4,
