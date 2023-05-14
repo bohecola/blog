@@ -1,8 +1,11 @@
 <script lang="ts" setup>
 import TagList from "./TagList.vue";
+const props = withDefaults(defineProps<{ query?: string }>(), {
+  query: "blog"
+});
 
 // 数据查询
-const { data: list } = await useAsyncData("tags", () => queryContent("/blog/")
+const { data: list } = await useAsyncData("tags", () => queryContent(props.query)
   .only(["tags"])
   .find());
 
@@ -30,7 +33,7 @@ function filterClickHandler () {
 // 清空查询
 function clear () {
   activeTags.value = [];
-  navigateTo("/");
+  navigateTo(route.path);
 }
 
 // 监听路由 query

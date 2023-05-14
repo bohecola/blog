@@ -22,10 +22,6 @@ onMounted(() => {
 
 // 标签点击
 function tagClickHandler (clickedTag: string) {
-  if (route.path !== "/") {
-    activeTags.value = [];
-  }
-
   const tagIndex = findIndex(activeTags.value, clickedTag);
 
   if (tagIndex > -1) {
@@ -35,7 +31,7 @@ function tagClickHandler (clickedTag: string) {
   }
 
   navigateTo({
-    path: "/",
+    path: route.path,
     query: activeTags.value.length > 0
       ? { tag: activeTags.value }
       : {}

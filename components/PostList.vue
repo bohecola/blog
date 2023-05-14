@@ -1,5 +1,8 @@
 <script lang="ts" setup>
 import { dateFormat } from "@/utils";
+const props = withDefaults(defineProps<{ query?: string }>(), {
+  query: "blog"
+});
 
 // 分页数据
 const page = ref(1);
@@ -11,7 +14,7 @@ const route = useRoute();
 // 列表查询
 const { data: list, refresh } = await useAsyncData(route.fullPath, () => {
   const { tag } = route.query;
-  return queryContent("blog")
+  return queryContent(props.query)
     .where({
       // @ts-ignore
       tags: {

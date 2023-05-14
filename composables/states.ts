@@ -1,5 +1,6 @@
 export const useActiveStates = () => {
+  const activeTags = ref([]);
   return {
-    activeTags: useState<string[]>(() => [])
+    activeTags
   };
 };
