@@ -8,13 +8,7 @@
       </article>
       <!-- 返回按钮 -->
       <div class="prose m-auto my-8">
-        <nuxt-link
-          v-if="$route.path.lastIndexOf('/') > 0"
-          class="font-mono opacity-50 hover:opacity-75 cursor-pointer"
-          @click="$router.push('/')"
-        >
-          cd ..
-        </nuxt-link>
+        <go-back />
       </div>
       <!-- 底部 -->
       <div class="prose m-auto mb-4">
