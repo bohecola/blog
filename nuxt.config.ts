@@ -4,28 +4,21 @@ export default defineNuxtConfig({
     "@nuxtjs/color-mode",
     "@nuxt/content"
   ],
-  runtimeConfig: {
-    public: {
-      content: {
-        markdown: {
-          mdc: true,
-          toc: {
-            depth: 3,
-            searchDepth: 3
-          },
-          anchorLinks: {
-            depth: 4,
-            exclude: [1]
-          }
-        },
-        highlight: {
-          theme: "one-dark-pro"
-        }
+  content: {
+    markdown: {
+      mdc: true,
+      toc: {
+        depth: 3,
+        searchDepth: 3
+      },
+      anchorLinks: {
+        depth: 4,
+        exclude: [1]
       }
+    },
+    highlight: {
+      theme: "one-dark-pro"
     }
-  },
-  experimental: {
-    reactivityTransform: true
   },
   css: ["@/assets/css/index.scss"],
   colorMode: { classSuffix: "" },
