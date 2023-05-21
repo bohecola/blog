@@ -5,7 +5,7 @@ const props = withDefaults(defineProps<{ query?: string }>(), {
 });
 
 // 数据查询
-const { data: list } = await useAsyncData("tags", () => queryContent(props.query)
+const { data: list } = await useAsyncData(`tags-${props.query}`, () => queryContent(props.query)
   .only(["tags"])
   .find());
 
