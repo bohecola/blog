@@ -24,6 +24,7 @@
       >
         <div i-carbon-logo-github />
       </nuxt-link>
+
       <nuxt-link class="select-none">
         <dark-toggle title="Toggle Color Scheme" />
       </nuxt-link>
