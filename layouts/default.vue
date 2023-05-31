@@ -24,6 +24,9 @@
         </p>
       </div>
     </main>
+    <ClientOnly>
+      <to-top />
+    </ClientOnly>
   </div>
 </template>
 
