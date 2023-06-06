@@ -4,7 +4,6 @@ const active = ref(false);
 window.addEventListener("scroll", () => {
   active.value = window.scrollY > 100;
 });
-
 </script>
 
 <template>
@@ -28,20 +27,6 @@ window.addEventListener("scroll", () => {
     bottom: 1.25em;
     pointer-events: auto;
     opacity: 1;
-  }
-  &.forward {
-    animation: forward 2s;
-  }
-}
-
-@keyframes forward {
-  from {
-    bottom: 1.25em;
-    opacity: 1;
-  }
-  to {
-    bottom: 16em;
-    opacity: 0;
   }
 }
 </style>
