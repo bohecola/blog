@@ -1,6 +1,6 @@
 <template>
   <div class="app">
-    <topbar />
+    <top-bar />
     <main class="px-7">
       <!-- 正文 -->
       <article class="main-content prose m-auto">

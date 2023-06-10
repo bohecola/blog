@@ -1,6 +1,6 @@
 <template>
-  <PostFilter />
-  <PostList />
+  <post-filter />
+  <post-list />
 </template>
 
 <script lang="ts" setup>
