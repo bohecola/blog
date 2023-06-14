@@ -12,10 +12,6 @@ export function dateFormat (date: string) {
     : dayjs(date).format("MMM DD, YYYY");
 }
 
-export function unique (arr: []) {
-  return arr.length > 0 ? Array.from(new Set(arr)) : arr;
-}
-
 export function isInQueryParams (key: string, val: string) {
   const route = useRoute();
   return !!route.query[key]?.includes(val);
