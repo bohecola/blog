@@ -16,10 +16,6 @@ export function unique (arr: []) {
   return arr.length > 0 ? Array.from(new Set(arr)) : arr;
 }
 
-export function findIndex<T> (arr: T[], target: T) {
-  return arr.findIndex(el => el === target);
-}
-
 export function isInQueryParams (key: string, val: string) {
   const route = useRoute();
   return !!route.query[key]?.includes(val);

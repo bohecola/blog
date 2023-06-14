@@ -1,5 +1,7 @@
 <script lang="ts" setup>
-import { findIndex, isInQueryParams } from "@/utils";
+import { isArray, isEmpty } from "lodash-es";
+import { isInQueryParams } from "@/utils";
+
 defineProps<{
   data: string[]
 }>();
@@ -7,36 +9,31 @@ defineProps<{
 // 路由
 const route = useRoute();
 
-// 活跃标签
-const { activeTags } = useActiveStates();
-
-// 挂载
-onMounted(() => {
-  const { tag } = route.query;
-  if (tag) {
-    activeTags.value = Array.isArray(tag)
-      ? [...tag as string[]]
-      : [tag as string];
-  }
-});
-
 // 标签点击
-function tagClickHandler (clickedTag: string) {
-  const tagIndex = findIndex(activeTags.value, clickedTag);
+function handleTagClick (tagName: string) {
+  // 查询路径
+  const parentPath = useParentPath();
+  // 当前 Query Tag 参数
+  const { tag } = route.query;
+  const currentQueryTags = tag
+    ? isArray(tag) ? [...tag] : [tag]
+    : [];
 
-  if (tagIndex > -1) {
-    activeTags.value.splice(tagIndex, 1);
-  } else {
-    activeTags.value.push(clickedTag);
+  // 目标 Query Tag 参数
+  const targetQueryTags = currentQueryTags.includes(tagName)
+    ? currentQueryTags.filter(e => e !== tagName)
+    : [...currentQueryTags, tagName];
+
+  // 目标 Query 参数
+  const targetQuery = {};
+  if (!isEmpty(targetQueryTags)) {
+    Object.assign(targetQuery, { tag: targetQueryTags });
   }
 
-  const parentPath = useParentPath();
-
+  // 导航
   navigateTo({
     path: parentPath,
-    query: activeTags.value.length > 0
-      ? { tag: activeTags.value }
-      : {}
+    query: targetQuery
   });
 }
 </script>
@@ -44,17 +41,17 @@ function tagClickHandler (clickedTag: string) {
 <template>
   <div class="flex gap-2 text-sm">
     <span
-      v-for="tag in data"
-      :key="tag"
+      v-for="tagName in data"
+      :key="tagName"
       :class="[
         'tag select-none',
-        isInQueryParams('tag', tag)
+        isInQueryParams('tag', tagName)
           ? 'cyan-active'
           : 'cyan-normal'
       ]"
-      @click="tagClickHandler(tag)"
+      @click="handleTagClick(tagName)"
     >
-      #{{ tag }}
+      #{{ tagName }}
     </span>
   </div>
 </template>
