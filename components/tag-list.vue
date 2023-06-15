@@ -1,6 +1,5 @@
 <script lang="ts" setup>
 import { isArray, isEmpty } from "lodash-es";
-import { isInQueryParams } from "@/utils";
 
 defineProps<{
   data: string[]
@@ -10,7 +9,7 @@ defineProps<{
 const route = useRoute();
 
 // 标签点击
-function handleTagClick (tagName: string) {
+function handleTagClick(tagName: string) {
   // 查询路径
   const parentPath = useParentPath();
   // 当前 Query Tag 参数
@@ -40,17 +39,12 @@ function handleTagClick (tagName: string) {
 
 <template>
   <div class="flex gap-2 text-sm">
-    <span
-      v-for="tagName in data"
-      :key="tagName"
-      :class="[
-        'tag select-none',
-        isInQueryParams('tag', tagName)
-          ? 'cyan-active'
-          : 'cyan-normal'
-      ]"
-      @click="handleTagClick(tagName)"
-    >
+    <span v-for="tagName in data" :key="tagName" :class="[
+      'tag select-none',
+      route.query.tag && route.query.tag.includes(tagName)
+        ? 'cyan-active'
+        : 'cyan-normal'
+    ]" @click="handleTagClick(tagName)">
       #{{ tagName }}
     </span>
   </div>
