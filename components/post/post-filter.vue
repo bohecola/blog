@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import TagList from "./tag-list.vue";
+import TagList from "../tag-list.vue";
 const props = withDefaults(defineProps<{ query?: string }>(), {
   query: "blog"
 });
@@ -25,12 +25,12 @@ const filterActive = ref(false);
 const route = useRoute();
 
 // 过滤按钮点击
-function handleFilterClick () {
+function handleFilterClick() {
   filterActive.value = !filterActive.value;
 }
 
 // 清空查询
-function clear () {
+function clear() {
   navigateTo(route.path);
 }
 
@@ -45,17 +45,10 @@ watch(() => route.query, () => {
 <template>
   <div class="mb-6">
     <div class="flex gap-2 mb-2">
-      <div
-        :class="['btn', filterActive ? 'sky-active' : 'sky-normal']"
-        @click="handleFilterClick"
-      >
+      <div :class="['btn', filterActive ? 'sky-active' : 'sky-normal']" @click="handleFilterClick">
         <div class="i-mdi-filter-plus-outline" />
       </div>
-      <div
-        v-show="filterActive"
-        class="btn green-normal"
-        @click="clear"
-      >
+      <div v-show="filterActive" class="btn green-normal" @click="clear">
         <div class="i-ant-design-clear-outlined" />
       </div>
     </div>
