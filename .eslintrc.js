@@ -9,10 +9,11 @@ module.exports = {
 		"no-mixed-spaces-and-tabs": ["off"],
 		// 链式调用换行
 		"newline-per-chained-call": ["error", { ignoreChainWithDepth: 2 }],
-		// 引号风格
-		"quotes": ["error", "double"],
 		// 结尾分号
 		"semi": ["error", "always"],
+		// 引号风格
+		"quotes": ["error", "double"],
+		"quote-props": ["error", "consistent-as-needed"],
 		// 末尾逗号
 		"comma-dangle": ["error", {
 			arrays: "never",
