@@ -34,11 +34,6 @@
 
 <script lang="ts" setup>
 const { navigation } = useAppConfig();
-// const navigation = ref([
-//   { path: '/', title: 'Blog', icon: 'i-ri-article-line'  },
-//   { path: '/links', title: 'Links', icon: 'i-carbon-link'  },
-//   { path: '/about', title: 'About', icon: 'i-carbon-user-profile'  },
-// ])
 </script>
 
 <style lang="scss" scoped>

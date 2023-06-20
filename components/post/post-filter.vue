@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import TagList from "../tag-list.vue";
+import TagList from "../tag/tag-list.vue";
 const props = withDefaults(defineProps<{ query?: string }>(), {
   query: "blog"
 });
@@ -25,12 +25,12 @@ const filterActive = ref(false);
 const route = useRoute();
 
 // 过滤按钮点击
-function handleFilterClick() {
+function handleFilterClick () {
   filterActive.value = !filterActive.value;
 }
 
 // 清空查询
-function clear() {
+function clear () {
   navigateTo(route.path);
 }
 
