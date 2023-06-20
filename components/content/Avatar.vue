@@ -3,9 +3,7 @@
 </template>
 
 <script lang="ts" setup>
-defineProps({
-  url: String
-});
+defineProps({ url: String });
 </script>
 
 <style lang="scss" scoped>

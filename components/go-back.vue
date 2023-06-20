@@ -7,12 +7,12 @@ const router = useRouter();
 const hasParentPath = computed(() => route.path.lastIndexOf("/") > 0);
 
 // 返回上一级
-function goBack () {
-  // 父级路径
-  const parentPath = useParentPath();
+function goBack() {
+	// 父级路径
+	const parentPath = useParentPath();
 
-  // 路由跳转
-  router.push(parentPath);
+	// 路由跳转
+	router.push(parentPath);
 }
 </script>
 

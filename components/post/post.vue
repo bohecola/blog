@@ -34,10 +34,10 @@ import { dateFormat } from "@/utils";
 const color = useColorMode();
 
 onMounted(() => {
-  const zoom = mediumZoom("[data-zoomable]");
+	const zoom = mediumZoom("[data-zoomable]");
 
-  watch(color, (newColor) => {
-    zoom.update({ background: newColor.value === "dark" ? "#091a28" : "#fff" });
-  }, { immediate: true });
+	watch(color, (newColor) => {
+		zoom.update({ background: newColor.value === "dark" ? "#091a28" : "#fff" });
+	}, { immediate: true });
 });
 </script>

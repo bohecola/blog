@@ -1,21 +1,21 @@
 <script setup lang="ts">
 const props = defineProps({
-  code: {
-    type: String,
-    default: ""
-  },
-  language: {
-    type: String,
-    default: null
-  },
-  filename: {
-    type: String,
-    default: null
-  },
-  highlights: {
-    type: Array as () => number[],
-    default: () => []
-  }
+	code: {
+		type: String,
+		default: ""
+	},
+	language: {
+		type: String,
+		default: null
+	},
+	filename: {
+		type: String,
+		default: null
+	},
+	highlights: {
+		type: Array as () => number[],
+		default: () => []
+	}
 });
 
 const { copied, copyHandler } = useCopy();

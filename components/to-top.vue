@@ -2,7 +2,7 @@
 const active = ref(false);
 
 window.addEventListener("scroll", () => {
-  active.value = window.scrollY > 100;
+	active.value = window.scrollY > 100;
 });
 </script>
 

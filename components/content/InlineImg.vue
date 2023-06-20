@@ -1,21 +1,21 @@
 <script setup lang="ts">
 defineProps({
-  src: {
-    type: String,
-    default: ""
-  },
-  alt: {
-    type: String,
-    default: ""
-  },
-  width: {
-    type: [String, Number],
-    default: "20"
-  },
-  height: {
-    type: [String, Number],
-    default: "20"
-  }
+	src: {
+		type: String,
+		default: ""
+	},
+	alt: {
+		type: String,
+		default: ""
+	},
+	width: {
+		type: [String, Number],
+		default: "20"
+	},
+	height: {
+		type: [String, Number],
+		default: "20"
+	}
 });
 </script>
 

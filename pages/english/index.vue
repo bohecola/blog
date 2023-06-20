@@ -4,7 +4,5 @@
 </template>
 
 <script lang="ts" setup>
-useHead({
-  title: "English"
-});
+useHead({ title: "English" });
 </script>

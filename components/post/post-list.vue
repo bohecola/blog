@@ -1,36 +1,26 @@
 <script lang="ts" setup>
 import { dateFormat } from "@/utils";
-const props = withDefaults(defineProps<{ query?: string }>(), {
-  query: "blog"
-});
-
-// 分页数据
-const page = ref(1);
-const size = ref(5);
+const props = withDefaults(defineProps<{ query?: string }>(), { query: "blog" });
 
 // 路由
 const route = useRoute();
 
 // 列表查询
 const { data: list, refresh } = await useAsyncData(route.fullPath, () => {
-  const { tag } = route.query;
-  return queryContent(props.query)
-    .where({
-      // @ts-ignore
-      tags: {
-        $in: tag
-      }
-    })
-    // .skip((page.value - 1) * size.value)
-    // .limit(size.value)
-    .only(["title", "description", "date", "tags", "_path"])
-    .sort({ date: -1 })
-    .find();
+	const { tag } = route.query;
+	return queryContent(props.query)
+		.where({
+			// @ts-ignore
+			tags: { $in: tag }
+		})
+		.only(["title", "description", "date", "tags", "_path"])
+		.sort({ date: -1 })
+		.find();
 });
 
 // 刷新
 watch(() => route.query, async () => {
-  await refresh();
+	await refresh();
 });
 </script>
 

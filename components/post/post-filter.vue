@@ -1,22 +1,20 @@
 <script lang="ts" setup>
 import TagList from "../tag/tag-list.vue";
-const props = withDefaults(defineProps<{ query?: string }>(), {
-  query: "blog"
-});
+const props = withDefaults(defineProps<{ query?: string }>(), { query: "blog" });
 
 // 数据查询
 const { data: list } = await useAsyncData(`tags-${props.query}`, () => queryContent(props.query)
-  .only("tags")
-  .find());
+	.only("tags")
+	.find());
 
 // 有重复数据的标签列表
 const temp = list.value?.reduce((prev, { tags }) => {
-  prev.push(...tags);
-  return prev;
+	prev.push(...tags);
+	return prev;
 }, [] as string[]);
 
 // 标签列表
-const tagList = Array.from(new Set(temp));
+const tags = Array.from(new Set(temp));
 
 // 过滤按钮活跃状态
 const filterActive = ref(false);
@@ -25,20 +23,20 @@ const filterActive = ref(false);
 const route = useRoute();
 
 // 过滤按钮点击
-function handleFilterClick () {
-  filterActive.value = !filterActive.value;
+function handleFilterClick() {
+	filterActive.value = !filterActive.value;
 }
 
 // 清空查询
-function clear () {
-  navigateTo(route.path);
+function clear() {
+	navigateTo(route.path);
 }
 
 // 监听路由 query
 watch(() => route.query, () => {
-  if ("tag" in route.query) {
-    filterActive.value = true;
-  }
+	if ("tag" in route.query) {
+		filterActive.value = true;
+	}
 }, { immediate: true });
 </script>
 
@@ -52,6 +50,6 @@ watch(() => route.query, () => {
         <div class="i-ant-design-clear-outlined" />
       </div>
     </div>
-    <tag-list v-show="filterActive" :data="tagList" />
+    <tag-list v-show="filterActive" :data="tags" />
   </div>
 </template>
