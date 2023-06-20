@@ -4,15 +4,15 @@ module.exports = {
 	],
 	rules: {
 		// 缩进风格
-		indent: ["error", "tab", { SwitchCase: 1 }],
+		"indent": ["error", "tab", { SwitchCase: 1 }],
 		"no-tabs": ["error", { allowIndentationTabs: true }],
 		"no-mixed-spaces-and-tabs": ["off"],
 		// 链式调用换行
 		"newline-per-chained-call": ["error", { ignoreChainWithDepth: 2 }],
 		// 引号风格
-		quotes: ["error", "double"],
+		"quotes": ["error", "double"],
 		// 结尾分号
-		semi: ["error", "always"],
+		"semi": ["error", "always"],
 		// 末尾逗号
 		"comma-dangle": ["error", {
 			arrays: "never",
@@ -67,7 +67,7 @@ module.exports = {
 		"object-curly-newline": ["error", {
 			ObjectExpression: { multiline: true, consistent: false },
 			ObjectPattern: { multiline: true },
-			ImportDeclaration: "never",
+			ImportDeclaration: { multiline: true },
 			ExportDeclaration: { multiline: true, minProperties: 3 }
 		}],
 		"object-curly-spacing": ["error", "always"],
