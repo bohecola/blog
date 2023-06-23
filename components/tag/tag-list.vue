@@ -15,17 +15,17 @@ function handleTagClick(tagName: string) {
 
 	// 当前 route.query.tag 参数
 	const { tag } = route.query;
-
+	// currentQueryTags 数组
 	const currentQueryTags = isArray(tag)
 		? [...tag]
 		: tag ? [tag] : [];
 
-	// 目标 route.query.tag 参数
+	// targetQueryTags 数组
 	const targetQueryTags = currentQueryTags.includes(tagName)
 		? currentQueryTags.filter(e => e !== tagName)
 		: [...currentQueryTags, tagName];
 
-	// 目标 route.query 参数
+	// 目标 route.query 对象
 	const targetQuery = !isEmpty(targetQueryTags) ? { tag: targetQueryTags } : {};
 
 	// 导航
