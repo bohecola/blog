@@ -3,6 +3,10 @@
     <article class="main-content prose m-auto">
       <slot />
     </article>
+
+    <div class="prose m-auto my-8">
+      <LayoutsPageGoBack />
+    </div>
   </main>
 </template>
 

@@ -26,7 +26,7 @@
       </nuxt-link>
 
       <nuxt-link class="select-none">
-        <LayoutPageThemeSwitcher title="Toggle Color Scheme" />
+        <LayoutsPageThemeSwitcher title="Toggle Color Scheme" />
       </nuxt-link>
     </div>
   </header>
