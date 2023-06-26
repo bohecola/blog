@@ -4,5 +4,6 @@
 </template>
 
 <script lang="ts" setup>
+definePageMeta({ layout: "page" });
 useHead({ title: "English" });
 </script>
