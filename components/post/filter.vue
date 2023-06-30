@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import TagList from "../tag/tag-list.vue";
+import TagList from "../tag/list.vue";
 const props = withDefaults(defineProps<{ query?: string }>(), { query: "blog" });
 
 // 数据查询
