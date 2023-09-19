@@ -1,5 +1,4 @@
 <script lang="ts" setup>
-import TagList from "../tag/list.vue";
 const props = withDefaults(defineProps<{ query?: string }>(), { query: "blog" });
 
 // 数据查询
@@ -43,13 +42,23 @@ watch(() => route.query, () => {
 <template>
   <div class="mb-6">
     <div class="flex gap-2 mb-2">
-      <div :class="['btn', filterActive ? 'sky-active' : 'sky-normal']" @click="handleFilterClick">
+      <div
+        :class="['btn', filterActive ? 'sky-active' : 'sky-normal']"
+        @click="handleFilterClick"
+      >
         <div class="i-mdi-filter-plus-outline" />
       </div>
-      <div v-show="filterActive" class="btn green-normal" @click="clear">
+      <div
+        v-show="filterActive"
+        class="btn green-normal"
+        @click="clear"
+      >
         <div class="i-ant-design-clear-outlined" />
       </div>
     </div>
-    <tag-list v-show="filterActive" :data="tags" />
+    <tag-list
+      v-show="filterActive"
+      :data="tags"
+    />
   </div>
 </template>

@@ -1,25 +1,21 @@
 export function useParentPath() {
-	// 路由
-	const route = useRoute();
+	// 虚路径
+	const virtualPath = ["/blog"];
 	// 当前路径
-	const currentPath = route.path;
-	// 无效路径（虚路径）
-	const invalidPaths = ["/blog"];
-	// 尾路径分隔符索引
-	const endIndex = currentPath.lastIndexOf("/");
+	const { path } = useRoute();
+	// 斜杠倒序索引
+	const lastSlashIndex = path.lastIndexOf("/");
+
+	// 是否是多级路由
+	const isMulti = lastSlashIndex > 0;
 
 	// 多级路由
-	const isMulti = endIndex > 0;
-
 	if (isMulti) {
-		// 计算的父级路径
-		const computedParentPath = currentPath.slice(0, endIndex);
-		// 实际父级路径
-		const parentPath = invalidPaths.includes(computedParentPath) ? "/" : computedParentPath;
-		// 返回父级路径
-		return parentPath;
-	} else {
-		// 不存在多级路径，返回当前路径
-		return currentPath;
+		// 截取父级路径
+		const parentPath = path.slice(0, lastSlashIndex);
+		// 返回父级路由
+		return virtualPath.includes(parentPath) ? "/" : parentPath;
 	}
+
+	return path;
 }
