@@ -8,7 +8,10 @@
       :width="width"
       :height="height"
     >
-    <figcaption v-if="alt" class="text-center font-light">
+    <figcaption
+      v-if="alt"
+      class="text-center font-light"
+    >
       {{ alt }}
     </figcaption>
   </figure>

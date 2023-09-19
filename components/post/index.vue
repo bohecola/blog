@@ -14,8 +14,14 @@
           {{ doc.description }}
         </p>
 
-        <ContentRenderer class="content-renderer" :value="doc" />
-        <Toc class="lt-md:hidden" :toc="doc.body.toc" />
+        <ContentRenderer
+          class="content-renderer"
+          :value="doc"
+        />
+        <Toc
+          class="lt-md:hidden"
+          :toc="doc.body.toc"
+        />
       </template>
       <template #not-found>
         <h1>Document not found</h1>

@@ -1,9 +1,13 @@
 <template>
-  <img class="avatar" :src="url" alt="avatar">
+  <img
+    class="avatar"
+    :src="url"
+    alt="avatar"
+  >
 </template>
 
 <script lang="ts" setup>
-defineProps({ url: String });
+defineProps<{url: string}>();
 </script>
 
 <style lang="scss" scoped>

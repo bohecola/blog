@@ -7,7 +7,10 @@ window.addEventListener("scroll", () => {
 </script>
 
 <template>
-  <a href="#" :class="['back-to-top', { active }]" />
+  <a
+    href="#"
+    :class="['back-to-top', { active }]"
+  />
 </template>
 
 <style lang="scss" scoped>

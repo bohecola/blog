@@ -27,7 +27,11 @@ watch(() => route.query, async () => {
 <template>
   <ul class="post-list">
     <!-- 列表项 -->
-    <li v-for="post in list" :key="post._path" class="mt-2 mb-6">
+    <li
+      v-for="post in list"
+      :key="post._path"
+      class="mt-2 mb-6"
+    >
       <!-- 主体信息 -->
       <nuxt-link :to="post._path">
         <div class="text-sm mb-2">

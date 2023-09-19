@@ -7,8 +7,15 @@ const generate = anchorLinks?.depth >= heading && !anchorLinks?.exclude.includes
 </script>
 
 <template>
-  <h6 :id="id" tabindex="-1">
-    <a v-if="generate" class="header-achor" :href="`#${id}`">
+  <h6
+    :id="id"
+    tabindex="-1"
+  >
+    <a
+      v-if="generate"
+      class="header-achor"
+      :href="`#${id}`"
+    >
       #
     </a>
     <slot />

@@ -20,7 +20,13 @@ defineProps({
 </script>
 
 <template>
-  <img class="inline-img" :src="src" :alt="alt" :height="height" :width="width">
+  <img
+    class="inline-img"
+    :src="src"
+    :alt="alt"
+    :height="height"
+    :width="width"
+  >
 </template>
 
 <style lang="scss" scoped>
