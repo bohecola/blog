@@ -7,6 +7,10 @@ export default defineNuxtConfig({
 		"@nuxtjs/color-mode",
 		"@nuxt/content"
 	],
+	colorMode: {
+		preference: "dark",
+		classSuffix: ""
+	},
 	content: {
 		markdown: {
 			mdc: true,
@@ -22,28 +26,14 @@ export default defineNuxtConfig({
 		highlight: { theme: "one-dark-pro" }
 	},
 	css: ["@/assets/css/index.scss"],
-	colorMode: { classSuffix: "" },
 	app: {
 		baseURL: "/",
 		buildAssetsDir: "/_nuxt/",
 		head: {
 			meta: [
 				{ name: "viewport", content: "width=device-width, initial-scale=1" },
-				{ name: "keywords", content: "colax,个人博客,个人空间" },
-				{ name: "description", content: "colax的个人博客,colax的个人空间" }
-			],
-			script: [
-				{
-					children: `
-            var _hmt = _hmt || [];
-            (function() {
-              var hm = document.createElement("script");
-              hm.src = "https://hm.baidu.com/hm.js?3a91eb11756100f0c4566114f639c8ed";
-              var s = document.getElementsByTagName("script")[0]; 
-              s.parentNode.insertBefore(hm, s);
-            })();
-          `
-				}
+				{ name: "keywords", content: "bohecola,个人博客,个人空间" },
+				{ name: "description", content: "bohecola的个人博客,bohecola的个人空间" }
 			],
 			link: [{ rel: "icon", type: "image/svg+xml", href: "/favicon.svg" }],
 			noscript: [{ children: "Javascript is required" }],
