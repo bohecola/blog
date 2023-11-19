@@ -14,7 +14,7 @@ defineProps<{url: string}>();
 .avatar {
   width: 6.25rem;
   height: 6.25rem;
-  border-radius: 4px;
+  border-radius: 50%;
   border: 1px solid #eee;
   object-fit: cover;
 }
