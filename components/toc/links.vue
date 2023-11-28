@@ -29,7 +29,7 @@ ul {
   list-style: none;
   margin: 0;
   li {
-    max-width: 15ch;
+    max-width: 30ch;
     font-size: .875rem;
     white-space: nowrap;
     text-overflow: ellipsis;

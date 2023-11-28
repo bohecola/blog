@@ -9,19 +9,22 @@ window.addEventListener("scroll", () => {
 <template>
   <a
     href="#"
-    :class="['back-to-top', { active }]"
-  />
+    :class="['back-to-top', { active }, 'flex items-center justify-center']"
+  >
+    <div class="i-material-symbols-arrow-upward-rounded  text-gray" />
+  </a>
 </template>
 
 <style lang="scss" scoped>
 .back-to-top {
   position: fixed;
-  width: 3em;
-  height: 3em;
-  right: 1.75em;
+  width: 2em;
+  height: 2em;
+  right: 1.75rem;
   bottom: 0;
   opacity: 0;
-  background: url('/assets/img/rocket.svg') no-repeat;
+  border: 1px solid #ddd;
+  border-radius: 50%;
   background-size: contain;
   transition: all 0.4s;
   pointer-events: none;

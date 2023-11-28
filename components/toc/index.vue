@@ -14,14 +14,13 @@ defineProps<{ toc: Toc }>();
 .toc {
   position: fixed;
   top: 50%;
+  right: 1.75rem;
+  padding: 1rem 1rem 1rem 0;
+  max-height: calc(100vh - 3.5rem - 4.5rem - 1.25rem);
+  font-size: 12px;
+  border-left: 1px dashed #bbb;
   transform: translateY(-50%);
-  right: 4.25rem;
-  max-height: 19.375rem;
-  overflow-y: auto;
-  opacity: 0;
   transition: all .4s ease-out;
-  &:hover {
-    opacity: .7;
-  }
+  overflow-y: auto;
 }
 </style>

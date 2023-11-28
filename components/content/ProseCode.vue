@@ -25,6 +25,9 @@ const { copied, copyHandler } = useCopy();
   <details open>
     <summary class="flex color-gray dark:color-gray-3">
       <span class="inline-block opacity-70 i-material-symbols-keyboard-arrow-down rotate-270" />
+      <div class="font-light">
+        {{ props.language }}
+      </div>
       <div>{{ props.filename }}</div>
       <button
         class="ml-auto p-0 flex items-center border-none w-4 h-4 cursor-pointer bg-inherit color-inherit opacity-70"
