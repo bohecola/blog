@@ -34,16 +34,14 @@ watch(() => route.query, async () => {
     >
       <!-- 主体信息 -->
       <nuxt-link :to="post._path">
-        <div class="text-sm mb-2">
-          <div class="text-lg leading-1.2em">
+        <div class="flex items-center mb-2">
+          <span class="text-lg opacity-70 mr-2 hover:opacity-100">
             {{ post.title }}
-          </div>
-          <div class="desc mt-2 opacity-70">
-            {{ post.description }}
-          </div>
-          <div class="time mt-1 opacity-70">
+          </span>
+
+          <span class="text-sm opacity-50">
             {{ dateFormat(post.date) }}
-          </div>
+          </span>
         </div>
       </nuxt-link>
 

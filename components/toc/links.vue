@@ -5,12 +5,13 @@ defineProps<{ links: TocLink[] }>();
 </script>
 
 <template>
-  <ul class="toc-links">
+  <ul>
     <li
       v-for="link in links"
       :key="link.id"
     >
       <NuxtLink
+        class="opacity-70 hover:opacity-100"
         :to="`#${link.id}`"
         :title="link.text"
       >
@@ -26,7 +27,6 @@ defineProps<{ links: TocLink[] }>();
 
 <style lang="scss" scoped>
 ul {
-  list-style: none;
   margin: 0;
   li {
     max-width: 30ch;
