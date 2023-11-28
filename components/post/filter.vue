@@ -16,7 +16,7 @@ const temp = list.value?.reduce((prev, { tags }) => {
 const tags = Array.from(new Set(temp));
 
 // 过滤按钮活跃状态
-const filterActive = ref(false);
+const filterActive = ref(true);
 
 // 路由
 const route = useRoute();

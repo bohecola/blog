@@ -27,13 +27,7 @@ export default defineConfig({
 		presetAttributify(),
 		presetIcons({ scale: 1.2 }),
 		presetTypography(),
-		presetWebFonts({
-			fonts: {
-				sans: "DM Sans",
-				serif: "DM Serif Display",
-				mono: "DM Mono"
-			}
-		})
+		presetWebFonts()
 	],
 	transformers: [
 		transformerDirectives(),
