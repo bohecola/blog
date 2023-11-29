@@ -4,6 +4,7 @@ module.exports = {
 		"@nuxt"
 	],
 	rules: {
+		"quote-props": ["error", "as-needed"],
 		"vue/no-multiple-template-root": "off",
 		"object-curly-newline": ["error", {
 			ObjectExpression: { multiline: true, consistent: true },
