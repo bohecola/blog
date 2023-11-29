@@ -3,7 +3,7 @@ export function useParentPath() {
 	const virtualPath = ["/blog"];
 	// 当前路径
 	const { path } = useRoute();
-	// 斜杠倒序索引
+	// 倒序查找斜杠索引
 	const lastSlashIndex = path.lastIndexOf("/");
 
 	// 是否是多级路由

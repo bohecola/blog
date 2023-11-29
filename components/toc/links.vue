@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { TocLink } from "@nuxt/content/dist/runtime/types";
+import type { TocLink } from "@nuxt/content/dist/runtime/types";
 
 defineProps<{ links: TocLink[] }>();
 </script>
@@ -11,7 +11,6 @@ defineProps<{ links: TocLink[] }>();
       :key="link.id"
     >
       <NuxtLink
-        class="opacity-70 hover:opacity-100"
         :to="`#${link.id}`"
         :title="link.text"
       >
@@ -26,14 +25,14 @@ defineProps<{ links: TocLink[] }>();
 </template>
 
 <style lang="scss" scoped>
-ul {
-  margin: 0;
-  li {
-    max-width: 30ch;
-    font-size: .875rem;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    overflow-x: hidden;
+  ul {
+    margin: 0;
+    li {
+      max-width: 30ch;
+      font-size: .875rem;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow-x: hidden;
+    }
   }
-}
 </style>

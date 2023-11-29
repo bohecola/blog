@@ -13,7 +13,7 @@ const generate = anchorLinks?.depth >= heading && !anchorLinks?.exclude.includes
   >
     <a
       v-if="generate"
-      class="header-achor"
+      class="header-anchor"
       :href="`#${id}`"
     >
       #

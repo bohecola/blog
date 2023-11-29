@@ -1,0 +1,18 @@
+@mixin custom-scrollbar($thumb-color, $thumb-hover-color, $track-color) {
+  &::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: $thumb-color;
+
+    &:hover {
+      background-color: $thumb-hover-color;
+    }
+  }
+
+  &::-webkit-scrollbar-track {
+    background: $track-color;
+  }
+}

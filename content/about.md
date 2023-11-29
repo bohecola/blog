@@ -6,7 +6,7 @@ title: About
 
 :avatar{url=/img/avatar.jpeg}
 
-I'm Cola, A Front-end developer.
+I'm Bohe, A Front-end developer.
 
 Nice to meet you.
 

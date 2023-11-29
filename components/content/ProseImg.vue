@@ -2,7 +2,7 @@
   <figure>
     <img
       data-zoomable
-      class="block my-3 mx-auto"
+      class="mx-auto"
       :src="src"
       :alt="alt"
       :width="width"

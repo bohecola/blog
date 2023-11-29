@@ -5,24 +5,29 @@ defineProps<{
   text: string
 }>();
 
+// 路由
 const route = useRoute();
 
-function handleClick(text: string) {
-	// 查询路径
+// 标签点击事件
+function handleClick(currentTag: string) {
+	// 计算父级路由的 path
 	const parentPath = useParentPath();
 
-	// Query Tags
+	// 路由 query 参数
 	const { tag } = route.query;
 
+	// 数组化 tag 参数
 	const queryTags = isArray(tag)
 		? [...tag]
 		: tag ? [tag] : [];
 
-	const index = queryTags.findIndex(e => e === text);
+	// 当前 tag 在 queryTags 中的索引
+	const index = queryTags.findIndex(e => e === currentTag);
 
-	index < 0 ? queryTags.push(text) : queryTags.splice(index, 1);
+	// currentTag 存在删除，不存在添加
+	index < 0 ? queryTags.push(currentTag) : queryTags.splice(index, 1);
 
-	// 目标 route.query 对象
+	// 创建目标路由 query 参数对象
 	const query = !isEmpty(queryTags) ? { tag: queryTags } : {};
 
 	// 导航
@@ -44,7 +49,7 @@ function isActive(text: string): boolean {
 
 <template>
   <span
-    :class="['tag', 'select-none', isActive(text) ? 'cyan-active' : 'cyan-normal']"
+    :class="`tag select-none ${isActive(text) ? 'cyan-active' : 'cyan-normal'}`"
     @click="handleClick(text)"
   >
     #{{ text }}

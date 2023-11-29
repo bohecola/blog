@@ -1,7 +1,11 @@
 <script lang="ts" setup>
-const props = withDefaults(defineProps<{ query?: string }>(), { query: "blog" });
+// 默认参数
+const props = withDefaults(
+	defineProps<{ query?: string }>(),
+	{ query: "blog" }
+);
 
-// 数据查询
+// 标签数据查询
 const { data: list } = await useAsyncData(`tags-${props.query}`, () => queryContent(props.query)
 	.only("tags")
 	.find());
@@ -42,19 +46,19 @@ watch(() => route.query, () => {
 <template>
   <div class="mb-6">
     <div class="flex gap-2 mb-2">
-      <div
-        :class="['btn', filterActive ? 'sky-active' : 'sky-normal']"
+      <button
+        :class="`btn ${filterActive ? 'sky-active' : 'sky-normal'}`"
         @click="handleFilterClick"
       >
-        <div class="i-mdi-filter-plus-outline" />
-      </div>
-      <div
+        <span class="i-mdi-filter-plus-outline" />
+      </button>
+      <button
         v-show="filterActive"
         class="btn green-normal"
         @click="clear"
       >
-        <div class="i-ant-design-clear-outlined" />
-      </div>
+        <span class="i-ant-design-clear-outlined" />
+      </button>
     </div>
     <tag-list
       v-show="filterActive"
