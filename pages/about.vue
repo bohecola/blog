@@ -1,7 +1,3 @@
 <template>
   <ContentDoc />
 </template>
-
-<script lang="ts" setup>
-definePageMeta({ layout: "page" });
-</script>

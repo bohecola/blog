@@ -19,7 +19,7 @@ function goBack() {
 <template>
   <nuxt-link
     v-if="hasParentPath"
-    class="font-mono opacity-50 hover:opacity-75 cursor-pointer"
+    class="font-mono cursor-pointer"
     @click="goBack"
   >
     cd ..

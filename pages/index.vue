@@ -1,9 +1,10 @@
 <template>
-  <post-filter />
-  <post-list />
+  <post-list
+    query="blog"
+    :filter="true"
+  />
 </template>
 
 <script lang="ts" setup>
-definePageMeta({ layout: "page" });
 useHead({ title: "Blog" });
 </script>

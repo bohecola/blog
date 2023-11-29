@@ -37,12 +37,12 @@ function handleClick() {
 </script>
 
 <template>
-  <div class="group relative bg-gray-1 dark:bg-gray-8 rounded">
-    <div class="absolute top-3 right-3 opacity-70">
+  <div class="group relative rounded">
+    <div class="absolute top-3 right-3 opacity-70 text-sm text-gray-200">
       <!-- 语言提示 -->
       <div
         ref="langRef"
-        class="block group-hover:hidden text-xs "
+        class="block group-hover:hidden font-mono text-xs"
       >
         {{ props.language }}
       </div>
@@ -50,11 +50,11 @@ function handleClick() {
       <!-- 拷贝按钮 -->
       <button
         ref="copyBtnRef"
-        class="hidden group-hover:block p-0 cursor-pointer border-none bg-inherit color-inherit"
+        class="hidden group-hover:block cursor-pointer"
         :disabled="copied"
         @click="handleClick"
       >
-        <i :class="`inline-block ${copied ? 'i-carbon-checkmark color-teal-6 dark:color-teal' : 'i-carbon-copy'}`" />
+        <i :class="`inline-block ${copied ? 'i-carbon-checkmark text-teal-600 dark:color-teal' : 'i-carbon-copy'}`" />
       </button>
     </div>
 

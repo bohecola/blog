@@ -1,9 +1,10 @@
 <template>
-  <post-filter query="english" />
-  <post-list query="english" />
+  <post-list
+    query="english"
+    :filter="true"
+  />
 </template>
 
 <script lang="ts" setup>
-definePageMeta({ layout: "page" });
 useHead({ title: "English" });
 </script>

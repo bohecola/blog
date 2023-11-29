@@ -1,14 +1,17 @@
-// import { createResolver } from "@nuxt/kit";
-// const { resolve } = createResolver(import.meta.url);
-
 export default defineNuxtConfig({
+	devtools: { enabled: true },
+	postcss: {
+		plugins: {
+			tailwindcss: {},
+			autoprefixer: {}
+		}
+	},
 	modules: [
-		"@unocss/nuxt",
-		"@nuxtjs/color-mode",
-		"@nuxt/content"
+		"@nuxt/content",
+		"@nuxtjs/color-mode"
 	],
 	colorMode: {
-		preference: "dark",
+		preference: "system",
 		classSuffix: ""
 	},
 	content: {

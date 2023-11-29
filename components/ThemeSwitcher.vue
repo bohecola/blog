@@ -1,8 +1,6 @@
 <template>
-  <div
-    dark:i-carbon-moon
-    i-carbon-sun
-    cursor-pointer
+  <span
+    class="dark:i-carbon-moon i-carbon-sun cursor-pointer"
     @click="toggleDark"
   />
 </template>

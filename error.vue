@@ -1,19 +1,27 @@
 <script setup lang="ts">
-defineProps(["error"]);
+defineProps({
+	error: Object
+});
+
+const handleError = () => clearError({ redirect: "/" });
 </script>
 
 <template>
-  <NuxtLayout name="default">
-    <div class="flex flex-col gap-3 opacity-50 font-mono text-center">
-      <p class="mt-30 mb-0">
-        {{ error.statusCode }}
-      </p>
-      <p class="m-0">
+  <NuxtLayout>
+    <!-- 错误信息 -->
+    <div>
+      <p class="mt-30">
         Ooops.
       </p>
-      <p class="m-0">
-        {{ error.message }}
-      </p>
+      <p>statusCdde: {{ error!.statusCode }}</p>
+      <p>{{ error!.message }}</p>
     </div>
+    <!-- 返回主页 -->
+    <button
+      class="border-b border-gray-300 hover:border-gray-400"
+      @click="handleError"
+    >
+      Clear errors
+    </button>
   </NuxtLayout>
 </template>

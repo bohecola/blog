@@ -1,6 +1,15 @@
 <script lang="ts" setup>
+// 日期格式化
 import { dateFormat } from "@/utils";
-const props = withDefaults(defineProps<{ query?: string }>(), { query: "blog" });
+
+// 默认参数
+const props = withDefaults(
+	defineProps<{ query?: string, filter?: boolean }>(),
+	{
+		query: "blog",
+		filter: false
+	}
+);
 
 // 路由
 const route = useRoute();
@@ -18,42 +27,38 @@ const { data: list, refresh } = await useAsyncData(route.fullPath, () => {
 		.find();
 });
 
-// 刷新
+// 路由 query 参数变化后刷新
 watch(() => route.query, async () => {
 	await refresh();
 });
 </script>
 
 <template>
-  <ul class="post-list">
-    <!-- 列表项 -->
-    <li
-      v-for="post in list"
-      :key="post._path"
-      class="mt-2 mb-6"
-    >
-      <!-- 主体信息 -->
-      <nuxt-link :to="post._path">
-        <div class="flex flex-col md:flex-row md:items-center gap-2 mb-2">
-          <span class="text-lg opacity-70 hover:opacity-100">
-            {{ post.title }}
-          </span>
+  <div class="not-prose">
+    <post-filter :query="query" />
+    <!-- 文章列表 -->
+    <ul>
+      <li
+        v-for="post in list"
+        :key="post._path"
+        class="mt-2 mb-6"
+      >
+        <nuxt-link :to="post._path">
+          <div class="flex flex-col gap-2 mb-2 opacity-70 hover:opacity-100 md:flex-row md:items-center">
+            <!-- 文章标题 -->
+            <span class="text-lg">
+              {{ post.title }}
+            </span>
+            <!-- 写作时间 -->
+            <span class="text-sm">
+              {{ dateFormat(post.date) }}
+            </span>
+          </div>
+        </nuxt-link>
 
-          <span class="text-sm opacity-50">
-            {{ dateFormat(post.date) }}
-          </span>
-        </div>
-      </nuxt-link>
-
-      <!-- 标签 -->
-      <tag-list :data="post.tags" />
-    </li>
-  </ul>
+        <!-- 标签 -->
+        <tag-list :data="post.tags" />
+      </li>
+    </ul>
+  </div>
 </template>
-
-<style lang="scss" scoped>
-ul.post-list {
-  list-style: none;
-  padding-left: 0;
-}
-</style>
