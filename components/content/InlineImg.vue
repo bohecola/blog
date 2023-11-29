@@ -21,16 +21,10 @@ defineProps({
 
 <template>
   <img
-    class="inline-img"
+    class="not-prose inline-block align-text-bottom mx-1"
     :src="src"
     :alt="alt"
     :height="height"
     :width="width"
   >
 </template>
-
-<style lang="scss" scoped>
-  .inline-img {
-    margin-bottom: -2px;
-  }
-</style>
