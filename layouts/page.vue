@@ -1,6 +1,6 @@
 <template>
   <div class="app">
-    <LayoutsPageNavbar />
+    <LayoutsPageHeader />
     <LayoutsPageContent>
       <slot />
     </LayoutsPageContent>

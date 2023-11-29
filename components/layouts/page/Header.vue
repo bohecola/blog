@@ -35,7 +35,7 @@
 <script lang="ts" setup>
 const navigation = [
 	{ path: "/", title: "Blog", icon: "i-ri-article-line" },
-	{ path: "/english", title: "English", icon: "i-carbon-link" },
+	{ path: "/english", title: "English", icon: "i-material-symbols-book-2-outline-rounded" },
 	{ path: "/about", title: "About", icon: "i-carbon-user-profile" }
 ];
 </script>
