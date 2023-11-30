@@ -1,5 +1,5 @@
 <template>
-  <header class="sticky top-0 flex p-5 bg-[--bg] border-b dark:border-zinc-800 z-10">
+  <header class="sticky top-0 flex p-5 z-10 bg-[--bg] border-b dark:border-zinc-800">
     <div class="flex-1" />
     <div class="flex gap-4">
       <!-- 导航 -->
@@ -39,7 +39,7 @@
 const navigation = [
 	{ path: "/", title: "Blog", icon: "i-ri-article-line" },
 	{ path: "/english", title: "English", icon: "i-material-symbols-book-2-outline-rounded" },
-	{ path: "/about", title: "About", icon: "i-carbon-user-profile" }
+	{ path: "/about", title: "About", icon: "i-carbon-person" }
 ];
 </script>
 

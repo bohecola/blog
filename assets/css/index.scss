@@ -67,4 +67,10 @@
   }
 }
 
+// fix medium-zoom overlay z-index
+.medium-zoom-overlay,
+.medium-zoom-image--opened {
+  z-index: 999;
+}
+
 @import './theme.scss';
