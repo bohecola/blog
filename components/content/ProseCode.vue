@@ -46,12 +46,3 @@ const { copied, copy } = useCopy();
     <slot />
   </div>
 </template>
-
-<style scoped>
-.show {
-  display: block;
-}
-.unshow {
-  display: none;
-}
-</style>

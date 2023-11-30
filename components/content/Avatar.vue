@@ -1,6 +1,6 @@
 <template>
   <img
-    class="avatar"
+    class="w-24 h-24 object-cover border !rounded-[50%]"
     :src="url"
     alt="avatar"
   >
@@ -9,13 +9,3 @@
 <script lang="ts" setup>
 defineProps<{url: string}>();
 </script>
-
-<style lang="scss" scoped>
-.avatar {
-  width: 6.25rem;
-  height: 6.25rem;
-  border-radius: 50%;
-  border: 1px solid #eee;
-  object-fit: cover;
-}
-</style>
