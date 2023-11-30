@@ -868,13 +868,6 @@
   dependencies:
     "@iconify/types" "*"
 
-"@iconify-json/la@^1.1.2":
-  version "1.1.7"
-  resolved "https://registry.npmmirror.com/@iconify-json/la/-/la-1.1.7.tgz#40bef074671818088d83a104ba7878fd117c86c3"
-  integrity sha512-BLetSdT0uUjvOYPLf0+a/0hWsO9i5wWSIKFFB54NwgpaYVMSMA8Aqg7nsgmbHFNq/2Jd8kqHjgLCUZ3ZmP883A==
-  dependencies:
-    "@iconify/types" "*"
-
 "@iconify-json/material-symbols@^1.1.65":
   version "1.1.65"
   resolved "https://registry.npmmirror.com/@iconify-json/material-symbols/-/material-symbols-1.1.65.tgz#2ef5cfb0e69ca485f021dc795a0dc7a8a32e01b0"
