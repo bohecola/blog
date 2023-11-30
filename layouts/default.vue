@@ -1,5 +1,5 @@
 <template>
-  <div class="app">
+  <div class="app min-h-screen dark:bg-grid-texture bg-[center_top_59px]">
     <!-- 头部 -->
     <LayoutHeader />
     <!-- 内容 -->

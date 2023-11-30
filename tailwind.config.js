@@ -42,6 +42,9 @@ module.exports = {
 			}),
 			fontFamily: {
 				mono: ["DM Mono", ...defaultTheme.fontFamily.mono]
+			},
+			backgroundImage: {
+				"grid-texture": "url('@/assets/img/grid.svg')"
 			}
 		}
 	},
