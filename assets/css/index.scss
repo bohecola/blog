@@ -2,6 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
+@import './theme.scss';
+@import "./mixins.scss";
+
 @layer base {
   html {
     @apply snap-y scroll-pt-20 scroll-smooth font-sans;
@@ -67,10 +70,13 @@
   }
 }
 
+// custom scroll bar
+.scroll-bar {
+  @include custom-scrollbar(rgba(144, 147, 153, 0.3), rgba(144, 147, 153, 0.5), rgba(144, 147, 153, 0.1));
+}
+
 // fix medium-zoom overlay z-index
 .medium-zoom-overlay,
 .medium-zoom-image--opened {
   z-index: 999;
 }
-
-@import './theme.scss';

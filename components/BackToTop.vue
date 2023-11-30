@@ -9,23 +9,12 @@ window.addEventListener("scroll", () => {
 <template>
   <a
     href="#"
-    :class="`back-to-top text-lg ${isActive ? 'active' : ''}`"
+    :class="`
+      block fixed right-7 bottom-4 w-7 h-7 leading-7 text-center text-lg
+      opacity-70 hover:opacity-100 z-20 transition-all duration-300
+      ${isActive ? 'opacity-100 -translate-y-0' : 'opacity-0 translate-y-10'}
+    `"
   >
-    <div class="i-material-symbols-arrow-upward-rounded" />
+    <span class="i-material-symbols-arrow-upward-rounded" />
   </a>
 </template>
-
-<style lang="scss" scoped>
-.back-to-top {
-  position: fixed;
-  right: 1.75rem;
-  bottom: 0;
-  opacity: 0;
-  transition: all 0.4s;
-  cursor: pointer;
-  &.active {
-    bottom: 1.25em;
-    opacity: 1;
-  }
-}
-</style>

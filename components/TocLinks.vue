@@ -5,16 +5,22 @@ defineProps<{ links: TocLink[] }>();
 </script>
 
 <template>
-  <ul>
+  <ul class="m-0 list-none">
     <li
       v-for="link in links"
       :key="link.id"
+      class="max-w-30ch text-sm"
     >
       <a
+        class="font-mono opacity-80 hover:opacity-100"
         :href="`#${link.id}`"
         :title="link.text"
       >
-        {{ link.text }}
+        <span
+          v-if="link.depth > 2"
+          class="mr-2 opacity-50"
+        >></span>
+        <span>{{ link.text }}</span>
       </a>
       <TocLinks
         v-if="link.children"
@@ -23,16 +29,3 @@ defineProps<{ links: TocLink[] }>();
     </li>
   </ul>
 </template>
-
-<style lang="scss" scoped>
-  ul {
-    margin: 0;
-    li {
-      max-width: 30ch;
-      font-size: .875rem;
-      white-space: nowrap;
-      text-overflow: ellipsis;
-      overflow-x: hidden;
-    }
-  }
-</style>

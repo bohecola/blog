@@ -5,24 +5,7 @@ defineProps<{ toc: Toc }>();
 </script>
 
 <template>
-  <div class="toc">
+  <div class="fixed top-[66px] right-0 py-5 w-[32ch] h-[calc(100vh-66px)] overflow-y-auto scroll-bar bg-[--bg] border-l dark:border-zinc-800 z-20">
     <TocLinks :links="toc.links" />
   </div>
 </template>
-
-<style lang="scss">
-@import "@/assets/css/mixins.scss";
-
-.toc {
-  position: fixed;
-  top: 50%;
-  right: 1.75rem;
-  transform: translateY(-50%);
-
-  max-height: calc(100vh - 3.5rem - 4.5rem - 3.5rem);
-  overflow-y: auto;
-
-  border-left: 1px dashed;
-  @include custom-scrollbar(rgba(144, 147, 153, 0.3), rgba(144, 147, 153, 0.5), rgba(144, 147, 153, 0.1));
-}
-</style>
