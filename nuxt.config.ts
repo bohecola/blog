@@ -1,5 +1,5 @@
 export default defineNuxtConfig({
-	devtools: { enabled: true },
+	devtools: { enabled: false },
 	app: {
 		baseURL: "/",
 		buildAssetsDir: "/_nuxt/",
