@@ -1370,6 +1370,15 @@
     eslint-plugin-vue "^9.7.0"
     local-pkg "^0.4.2"
 
+"@nuxtjs/google-fonts@^3.1.0":
+  version "3.1.0"
+  resolved "https://registry.npmmirror.com/@nuxtjs/google-fonts/-/google-fonts-3.1.0.tgz#0d8fd062637c3f5c6a59f2e48da5becd8ce0a1bd"
+  integrity sha512-4e6FacoTXefYNUzQkRqUBlB/uH/JTLYX2vDoOB6saUS4I81k2DNn8qQfUgiv5xc9nZyTOjYGqOHBJm8U4Ec4pQ==
+  dependencies:
+    "@nuxt/kit" "^3.8.2"
+    google-fonts-helper "^3.4.0"
+    pathe "^1.1.1"
+
 "@nuxtjs/mdc@^0.2.6":
   version "0.2.8"
   resolved "https://registry.npmmirror.com/@nuxtjs/mdc/-/mdc-0.2.8.tgz#84164d76a0ed00b27ba436325afd9883ad6dba1f"
@@ -3327,7 +3336,7 @@ deep-is@^0.1.3:
   resolved "https://registry.npmmirror.com/deep-is/-/deep-is-0.1.4.tgz#a6f2dce612fadd2ef1f519b73551f17e85199831"
   integrity sha512-oIPzksmTg4/MriiaYGO+okXDT7ztn/w3Eptv/+gSIdMdKsJo0u4CfYNFJPy+4SKMuCqGw2wxnA+URMg3t8a/bQ==
 
-deepmerge@^4.2.2:
+deepmerge@^4.2.2, deepmerge@^4.3.1:
   version "4.3.1"
   resolved "https://registry.npmmirror.com/deepmerge/-/deepmerge-4.3.1.tgz#44b5f2147cd3b00d4b56137685966f26fd25dd4a"
   integrity sha512-3sUqbMEc77XqpdNO7FRyRog+eW3ph+GYCbj+rK+uYyRMuwsVy0rMiVtPn+QJlKFvWP/1PYpapqYn0Me2knFn+A==
@@ -4625,6 +4634,16 @@ globby@^14.0.0:
     path-type "^5.0.0"
     slash "^5.1.0"
     unicorn-magic "^0.1.0"
+
+google-fonts-helper@^3.4.0:
+  version "3.4.0"
+  resolved "https://registry.npmmirror.com/google-fonts-helper/-/google-fonts-helper-3.4.0.tgz#98369c2d2fdea18237873e6372aca19b6a9495aa"
+  integrity sha512-WlSzFb7AnsTo1dSUL/A070fiQFbr89bw82u4FOyuQeigyfBaPLP4KP8qGfOMRWcb+IRowQtEwIwS4sEA2BzGFw==
+  dependencies:
+    deepmerge "^4.3.1"
+    hookable "^5.5.3"
+    ofetch "^1.3.3"
+    ufo "^1.3.2"
 
 gopd@^1.0.1:
   version "1.0.1"

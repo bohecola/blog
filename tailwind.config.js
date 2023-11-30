@@ -1,3 +1,4 @@
+const defaultTheme = require("tailwindcss/defaultTheme");
 const { iconsPlugin, getIconCollections  } = require("@egoist/tailwindcss-icons");
 
 /** @type {import('tailwindcss').Config} */
@@ -38,7 +39,10 @@ module.exports = {
 						}
 					}
 				}
-			})
+			}),
+			fontFamily: {
+				mono: ["DM Mono", ...defaultTheme.fontFamily.mono]
+			}
 		}
 	},
 	plugins: [
