@@ -1,5 +1,5 @@
 <template>
-  <header class="relative flex p-8">
+  <header class="sticky top-0 flex p-5 bg-[--bg] border-b dark:border-zinc-800 z-10">
     <div class="flex-1" />
     <div class="flex gap-4">
       <!-- 导航 -->
@@ -31,6 +31,7 @@
         <ThemeSwitcher title="Toggle Color Scheme" />
       </nuxt-link>
     </div>
+    <div class="curtain" />
   </header>
 </template>
 

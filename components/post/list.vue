@@ -44,7 +44,7 @@ watch(() => route.query, async () => {
         class="mt-2 mb-6"
       >
         <nuxt-link :to="post._path">
-          <div class="flex flex-col gap-1 mb-2 opacity-70 hover:opacity-100 md:flex-row md:gap-2 md:items-center">
+          <div class="flex flex-col gap-1 mb-2 opacity-80 hover:opacity-100 md:flex-row md:gap-2 md:items-center">
             <!-- 文章标题 -->
             <span class="text-lg">
               {{ post.title }}

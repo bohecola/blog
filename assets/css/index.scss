@@ -4,14 +4,14 @@
 
 @layer base {
   html {
-    @apply scroll-smooth font-sans;
+    @apply snap-y scroll-pt-20 scroll-smooth font-sans;
   }
 
   h2, h3, h4, h5, h6 {
     @apply relative;
 
     // 标题 hover,focus 时的锚点样式 
-    &:hover, &:focus {
+    &:hover {
       .header-anchor {
         @apply opacity-50;
       }
@@ -56,6 +56,14 @@
   }
   .green-active {
     @apply text-green-400 bg-green-700 hover:bg-green-600 dark:text-green-500 dark:bg-green-900 dark:hover:bg-green-800
+  }
+
+  .curtain {
+    @apply absolute right-0 -bottom-[33px] w-full h-8;
+
+    &::after {
+      @apply block content-[''] w-full h-8 bg-gradient-to-b from-[--bg] to-transparent;
+    }
   }
 }
 

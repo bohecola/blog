@@ -10,12 +10,12 @@ defineProps<{ links: TocLink[] }>();
       v-for="link in links"
       :key="link.id"
     >
-      <NuxtLink
-        :to="`#${link.id}`"
+      <a
+        :href="`#${link.id}`"
         :title="link.text"
       >
         {{ link.text }}
-      </NuxtLink>
+      </a>
       <TocLinks
         v-if="link.children"
         :links="link.children"
