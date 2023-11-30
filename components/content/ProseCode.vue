@@ -1,5 +1,5 @@
 <script setup lang="ts">
-const props = defineProps({
+defineProps({
 	code: {
 		type: String,
 		default: ""
@@ -18,22 +18,8 @@ const props = defineProps({
 	}
 });
 
-// 临时处理
-const copyBtnRef = ref<HTMLElement | null>(null);
-const langRef = ref<HTMLElement | null>(null);
-
+// 拷贝状态和拷贝函数，拷贝状态在拷贝完成后 900ms 更新为 false（实现拷贝成功状态停留显示）
 const { copied, copy } = useCopy();
-
-// 拷贝按钮点击
-function handleClick() {
-	copyBtnRef.value!.classList.add("show");
-  langRef.value!.classList.add("unshow");
-
-  copy(props.code, () => {
-    copyBtnRef.value!.classList.remove("show");
-    langRef.value!.classList.remove("unshow");
-  });
-}
 </script>
 
 <template>
@@ -41,18 +27,16 @@ function handleClick() {
     <div class="absolute top-3 right-3 opacity-70 text-sm text-gray-200">
       <!-- 语言提示 -->
       <div
-        ref="langRef"
-        class="block group-hover:hidden font-mono text-xs"
+        :class="`group-hover:hidden font-mono text-xs ${copied ? '!hidden' : ''}`"
       >
-        {{ props.language }}
+        {{ language }}
       </div>
 
       <!-- 拷贝按钮 -->
       <button
-        ref="copyBtnRef"
-        class="hidden group-hover:block cursor-pointer"
+        :class="`hidden group-hover:block cursor-pointer ${copied ? '!block' : ''}`"
         :disabled="copied"
-        @click="handleClick"
+        @click="copy(code)"
       >
         <i :class="`inline-block ${copied ? 'i-carbon-checkmark text-teal-600 dark:color-teal' : 'i-carbon-copy'}`" />
       </button>
