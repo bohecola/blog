@@ -14,6 +14,11 @@ export default defineNuxtConfig({
 			charset: "utf-8"
 		}
 	},
+	runtimeConfig: {
+		public: {
+			env: process.env.NODE_ENV
+		}
+	},
 	css: ["@/assets/css/index.scss"],
 	postcss: {
 		plugins: {

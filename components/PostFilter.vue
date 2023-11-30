@@ -1,14 +1,27 @@
 <script lang="ts" setup>
+import type { QueryBuilderWhere } from "@nuxt/content/dist/runtime/types";
+
 // 默认参数
 const props = withDefaults(
 	defineProps<{ query?: string }>(),
 	{ query: "blog" }
 );
 
+const config = useRuntimeConfig();
+const isDev = config.public.env === "development";
+
 // 标签数据查询
-const { data: list } = await useAsyncData(`tags-${props.query}`, () => queryContent(props.query)
-	.only("tags")
-	.find());
+const { data: list } = await useAsyncData(`tags-${props.query}`, () => {
+	const query: QueryBuilderWhere = {};
+
+	if (!isDev) {
+		Reflect.set(query, "draft", { $ne: true });
+	}
+	return queryContent(props.query)
+		.where(query)
+		.only("tags")
+		.find();
+});
 
 // 有重复数据的标签列表
 const temp = list.value?.reduce((prev, { tags }) => {

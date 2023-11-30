@@ -1,6 +1,10 @@
 <script lang="ts" setup>
 // 日期格式化
 import { dateFormat } from "@/utils";
+import type { QueryBuilderWhere } from "@nuxt/content/dist/runtime/types";
+
+const config = useRuntimeConfig();
+const isDev = config.public.env === "development";
 
 // 默认参数
 const props = withDefaults(
@@ -14,15 +18,22 @@ const props = withDefaults(
 // 路由
 const route = useRoute();
 
-// 列表查询
+// 文章列表查询
 const { data: list, refresh } = await useAsyncData(route.fullPath, () => {
 	const { tag } = route.query;
+
+	const query: QueryBuilderWhere = {
+		// @ts-ignore
+		tags: { $in: tag }
+	};
+
+	if (!isDev) {
+		Reflect.set(query, "draft", { $ne: true });
+	}
+
 	return queryContent(props.query)
-		.where({
-			// @ts-ignore
-			tags: { $in: tag }
-		})
-		.only(["title", "description", "date", "tags", "_path"])
+		.where(query)
+		.only(["title", "description", "date", "tags", "draft", "_path"])
 		.sort({ date: -1 })
 		.find();
 });
