@@ -6,5 +6,5 @@
 </template>
 
 <script lang="ts" setup>
-useHead({ title: "Blog" });
+useHead({ title: "Post" });
 </script>

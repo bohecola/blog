@@ -22,6 +22,6 @@ function goBack() {
     class="font-mono cursor-pointer"
     @click="goBack"
   >
-    cd ..
+    > cd ..
   </nuxt-link>
 </template>
