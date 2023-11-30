@@ -35,7 +35,7 @@ watch(() => route.query, async () => {
 
 <template>
   <div class="not-prose">
-    <post-filter :query="query" />
+    <PostFilter :query="query" />
     <!-- 文章列表 -->
     <ul>
       <li
@@ -57,7 +57,7 @@ watch(() => route.query, async () => {
         </nuxt-link>
 
         <!-- 标签 -->
-        <tag-list :data="post.tags" />
+        <TagList :data="post.tags" />
       </li>
     </ul>
   </div>

@@ -4,9 +4,10 @@
       <!-- front-matter 中定义的 title 标题 -->
       <h1>{{ doc.title }}</h1>
 
+      <!-- 文章简介 -->
       <div class="flex items-center">
         <!-- 写作时间 -->
-        <span class="opacity-50 mr-4">
+        <span class="opacity-70 mr-4">
           {{ dateFormat(doc.date) }}
         </span>
         <!-- 文章标签 -->
@@ -14,7 +15,7 @@
       </div>
 
       <!-- 文章描述 -->
-      <p class="opacity-50">
+      <p class="opacity-70">
         {{ doc.description }}
       </p>
 
@@ -43,7 +44,7 @@ onMounted(() => {
 	const zoom = mediumZoom("[data-zoomable]");
 
 	watch(color, (newColor) => {
-		zoom.update({ background: newColor.value === "dark" ? "#091a28" : "#fff" });
+		zoom.update({ background: newColor.value === "dark" ? "#111" : "#fff" });
 	}, { immediate: true });
 });
 </script>

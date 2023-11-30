@@ -60,7 +60,7 @@ watch(() => route.query, () => {
         <span class="i-ant-design-clear-outlined" />
       </button>
     </div>
-    <tag-list
+    <TagList
       v-show="filterActive"
       :data="tags"
     />

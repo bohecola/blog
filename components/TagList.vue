@@ -6,7 +6,7 @@ defineProps<{
 
 <template>
   <div class="flex flex-wrap gap-2 text-sm">
-    <TagListItem
+    <Tag
       v-for="(item, index) in data"
       :key="index"
       :text="item"
