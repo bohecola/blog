@@ -41,6 +41,7 @@ module.exports = {
 						},
 						pre: {
 							borderColor: "#201E1B",
+							// "rgb(0 0 0 / 50%)"
 							backgroundColor: "#121110"
 						}
 					}

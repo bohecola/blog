@@ -4,17 +4,26 @@ const isActive = ref(false);
 window.addEventListener("scroll", () => {
 	isActive.value = window.scrollY > 100;
 });
+
+const backToTop = () => {
+	window.scrollTo({
+		top: 0
+	});
+};
 </script>
 
 <template>
-  <a
-    href="#"
+  <button
     :class="`
-      block fixed right-7 bottom-4 w-7 h-7 leading-7 text-center text-lg
-      opacity-70 hover:opacity-100 z-20 transition-all duration-300
-      ${isActive ? 'opacity-100 -translate-y-0' : 'opacity-0 translate-y-10'}
+      block fixed right-3 bottom-3
+      w-10 h-10 text-center rounded-full
+      opacity-30 hover:opacity-100
+      transition-all duration-300
+      z-20 hover:bg-[#88888833]
+      ${isActive ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}
     `"
+    @click="backToTop"
   >
-    <span class="i-material-symbols-arrow-upward-rounded" />
-  </a>
+    <span class="i-material-symbols-arrow-upward-rounded " />
+  </button>
 </template>
