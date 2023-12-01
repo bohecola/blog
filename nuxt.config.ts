@@ -57,6 +57,11 @@ export default defineNuxtConfig({
 				exclude: [1]
 			}
 		},
-		highlight: { theme: "one-dark-pro" }
+		highlight: {
+			theme: {
+				default: "vitesse-light",
+				dark: "vitesse-dark"
+			}
+		}
 	}
 });

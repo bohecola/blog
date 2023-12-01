@@ -24,7 +24,7 @@ const { copied, copy } = useCopy();
 
 <template>
   <div class="group relative rounded">
-    <div class="absolute top-3 right-3 opacity-70 text-sm text-gray-200">
+    <div class="absolute top-3 right-3 opacity-70 text-sm">
       <!-- 语言提示 -->
       <div
         :class="`group-hover:hidden font-mono text-xs ${copied ? '!hidden' : ''}`"

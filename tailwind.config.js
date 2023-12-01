@@ -26,16 +26,22 @@ module.exports = {
 							borderBottomWidth: "2px"
 						},
 						pre: {
-							borderRadius: theme("borderRadius.xl"),
+							borderRadius: theme("borderRadius.md"),
 							padding: theme("padding.5"),
-							boxShadow: theme("boxShadow.md")
+							borderWidth: "1px",
+							borderColor: "#ECEBE8",
+							backgroundColor: "#F6F5F4"
 						}
 					}
 				},
-				dark: {
+				invert: {
 					css: {
 						a: {
 							borderBottomColor: theme("colors.sky.400")
+						},
+						pre: {
+							borderColor: "#201E1B",
+							backgroundColor: "#121110"
 						}
 					}
 				}
