@@ -1,6 +1,6 @@
 <template>
   <img
-    class="w-24 h-24 object-cover border !rounded-[50%]"
+    class="w-24 h-24 object-cover border !rounded-full"
     :src="url"
     alt="avatar"
   >

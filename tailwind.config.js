@@ -30,7 +30,7 @@ module.exports = {
 							padding: theme("padding.5"),
 							borderWidth: "1px",
 							borderColor: "#ECEBE8",
-							backgroundColor: "#F6F5F4"
+							backgroundColor: "#F8F8F8"
 						}
 					}
 				},
