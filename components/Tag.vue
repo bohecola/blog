@@ -52,6 +52,6 @@ function isActive(text: string): boolean {
     :class="`tag select-none ${isActive(text) ? 'cyan-active' : 'cyan-normal'}`"
     @click="handleClick(text)"
   >
-    #{{ text }}
+    # {{ text }}
   </span>
 </template>

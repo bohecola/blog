@@ -33,11 +33,11 @@
 
 @layer utilities {
   .btn {
-    @apply px-4 rounded cursor-pointer;
+    @apply px-4 cursor-pointer;
   }
 
   .tag {
-    @apply px-2 py-1 rounded cursor-pointer;
+    @apply px-2 py-1 cursor-pointer text-xs;
   }
 
   .cyan-normal {
