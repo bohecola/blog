@@ -1,7 +1,7 @@
 <template>
   <main class="px-7 py-10 overflow-x-hidden">
     <!-- 内容 -->
-    <article class="mx-auto prose prose-slate prose-img:rounded prose-img:border dark:prose-invert">
+    <article class="mx-auto prose prose-img:rounded prose-img:border dark:prose-invert">
       <slot />
     </article>
     <!-- 回到顶部 -->

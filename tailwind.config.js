@@ -26,10 +26,11 @@ module.exports = {
 							borderBottomWidth: "2px"
 						},
 						pre: {
-							borderRadius: theme("borderRadius.md"),
 							padding: theme("padding.5"),
 							borderWidth: "1px",
 							borderColor: "#ECEBE8",
+							borderRadius: theme("borderRadius.md"),
+							color: theme("colors.slate.800"),
 							backgroundColor: "#F8F8F8"
 						}
 					}
@@ -41,8 +42,8 @@ module.exports = {
 						},
 						pre: {
 							borderColor: "#201E1B",
-							// "rgb(0 0 0 / 50%)"
-							backgroundColor: "#121110"
+							color: theme("colors.slate.200"),
+							backgroundColor: "#121110" // "rgb(0 0 0 / 50%)"
 						}
 					}
 				}
