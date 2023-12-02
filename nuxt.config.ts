@@ -9,7 +9,9 @@ export default defineNuxtConfig({
 				{ name: "keywords", content: "bohecola,个人博客,个人空间" },
 				{ name: "description", content: "bohecola的个人博客,bohecola的个人空间" }
 			],
-			link: [{ rel: "icon", type: "image/svg+xml", href: "/favicon.svg" }],
+			link: [
+				{ rel: "icon", type: "image/png", href: "/favicon.png" }
+			],
 			noscript: [{ children: "Javascript is required" }],
 			charset: "utf-8"
 		}
