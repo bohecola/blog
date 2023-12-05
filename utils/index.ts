@@ -3,10 +3,12 @@ import localizedFormat from "dayjs/plugin/localizedFormat";
 dayjs.extend(localizedFormat);
 
 export function dateFormat(date: string) {
-	const currentYear = dayjs().year();
-	const dateYear = dayjs(date).year();
+	// const currentYear = dayjs().year();
+	// const dateYear = dayjs(date).year();
 
-	return currentYear === dateYear
-		? dayjs(date).format("MMM DD")
-		: dayjs(date).format("MMM DD, YYYY");
+	// return currentYear === dateYear
+	// 	? dayjs(date).format("MMM DD")
+	// 	: dayjs(date).format("MMM DD, YYYY");
+
+	return dayjs(date).format("MMM DD, YYYY");
 }
