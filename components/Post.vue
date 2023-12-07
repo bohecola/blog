@@ -4,13 +4,11 @@
       <!-- front-matter 中定义的 title 标题 -->
       <h1>{{ doc.title }}</h1>
 
-      <!-- 文章简介 -->
+      <!-- 写作时间 文章标签 -->
       <div class="flex items-center">
-        <!-- 写作时间 -->
         <span class="opacity-70 mr-4">
           {{ dateFormat(doc.date) }}
         </span>
-        <!-- 文章标签 -->
         <TagList :data="doc.tags" />
       </div>
 

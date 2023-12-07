@@ -25,6 +25,9 @@ module.exports = {
 						"a:hover": {
 							borderBottomWidth: "2px"
 						},
+						code: {
+							fontWeight: "500"
+						},
 						pre: {
 							padding: theme("padding.5"),
 							borderWidth: "1px",

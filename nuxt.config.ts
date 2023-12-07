@@ -63,7 +63,13 @@ export default defineNuxtConfig({
 			theme: {
 				default: "vitesse-light",
 				dark: "vitesse-dark"
-			}
+			},
+			preload: [
+				"cpp",
+				"http",
+				"apache",
+				"nginx"
+			]
 		}
 	}
 });
