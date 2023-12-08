@@ -9,7 +9,7 @@
         <span class="opacity-70 mr-4">
           {{ dateFormat(doc.date) }}
         </span>
-        <TagList :data="doc.tags" />
+        <TagList :tags="doc.tags" />
       </div>
 
       <!-- 文章描述 -->

@@ -68,7 +68,7 @@ watch(() => route.query, async () => {
         </nuxt-link>
 
         <!-- 标签 -->
-        <TagList :data="post.tags" />
+        <TagList :tags="post.tags" />
       </li>
     </ul>
   </div>

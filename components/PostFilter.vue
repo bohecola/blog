@@ -75,7 +75,7 @@ watch(() => route.query, () => {
     </div>
     <TagList
       v-show="filterActive"
-      :data="tags"
+      :tags="tags"
     />
   </div>
 </template>
