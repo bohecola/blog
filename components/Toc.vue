@@ -7,8 +7,7 @@ defineProps<{ toc: Toc }>();
 <template>
   <div
     class="
-      fixed top-[66px] right-0
-      py-5 w-[35ch] h-[calc(100vh-66px)] border-l
+      py-5 w-[26ch] h-[calc(100vh-66px)] border-l
       overflow-y-auto scroll-bar
       bg-[--bg] dark:border-zinc-800 z-20
     "

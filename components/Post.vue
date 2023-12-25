@@ -22,7 +22,7 @@
 
       <!-- 文章目录 -->
       <Toc
-        class="max-md:hidden"
+        :class="`fixed top-[66px] right-0 ${isTocBtnActive ? '' : 'max-lg:hidden' }`"
         :toc="doc.body!.toc!"
       />
     </template>
@@ -37,12 +37,18 @@ import mediumZoom from "medium-zoom";
 import { dateFormat } from "@/utils";
 
 const color = useColorMode();
+const postExist = usePostExist();
+const isTocBtnActive = useTocBtnActive();
 
 onMounted(() => {
+	postExist.value = true;
 	const zoom = mediumZoom("[data-zoomable]");
-
 	watch(color, (newColor) => {
 		zoom.update({ background: newColor.value === "dark" ? "#111" : "#fff" });
 	}, { immediate: true });
+});
+
+onUnmounted(() => {
+	postExist.value = false;
 });
 </script>
