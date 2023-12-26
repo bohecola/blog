@@ -22,7 +22,11 @@
 
       <!-- 文章目录 -->
       <Toc
-        :class="`fixed top-[66px] right-0 ${isTocBtnActive ? '' : 'max-lg:hidden' }`"
+        :class="`fixed top-[66px] right-0 transition-transform max-xl:hidden`"
+        :toc="doc.body!.toc!"
+      />
+      <Toc
+        :class="`fixed top-[66px] right-0 transition-transform ${isTocBtnActive ? 'translate-x-0' : 'translate-x-full' }`"
         :toc="doc.body!.toc!"
       />
     </template>

@@ -2,7 +2,7 @@
   <header class="sticky top-0 flex p-5 z-10 bg-[--bg] border-b dark:border-zinc-800">
     <TocBtn />
     <div class="flex-1" />
-    <div class="flex gap-4">
+    <div class="nav flex gap-4">
       <!-- 导航 -->
       <nuxt-link
         v-for="link in navigation"
@@ -46,11 +46,13 @@ const navigation = [
 
 <style lang="scss" scoped>
 header {
-  a {
-    opacity: .7;
-    transition: opacity .2s ease;
-    &:hover, &.active {
-      opacity: 1;
+  .nav {
+    a {
+      opacity: .7;
+      transition: opacity .2s ease;
+      &:hover, &.active {
+        opacity: 1;
+      }
     }
   }
 }
