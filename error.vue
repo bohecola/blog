@@ -13,7 +13,7 @@ const handleError = () => clearError({ redirect: "/" });
       <p class="mt-30">
         Ooops.
       </p>
-      <p>statusCdde: {{ error!.statusCode }}</p>
+      <p>statusCode: {{ error!.statusCode }}</p>
       <p>{{ error!.message }}</p>
     </div>
     <!-- 返回主页 -->

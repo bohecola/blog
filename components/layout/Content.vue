@@ -4,7 +4,7 @@
     <article class="mx-auto prose prose-img:rounded prose-img:border dark:prose-invert">
       <slot />
     </article>
-    <!-- 回到顶部 -->
+    <!-- 返回上一级 -->
     <div class="prose dark:prose-invert m-auto">
       <GoBack />
     </div>
