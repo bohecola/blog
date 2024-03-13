@@ -4,23 +4,25 @@ import { throttle } from "lodash-es";
 const postExist = usePostExist();
 const isTocBtnActive = useTocBtnActive();
 
-const innerWidth = ref(window.innerWidth);
-const handleResize = throttle(() => {
-	innerWidth.value = window.innerWidth;
-}, 100);
-window.addEventListener("resize", handleResize);
+if (process.client) {
+	const innerWidth = ref(window.innerWidth);
+	const handleResize = throttle(() => {
+		innerWidth.value = window.innerWidth;
+	}, 100);
+	window.addEventListener("resize", handleResize);
 
-const xl = 1280;
+	const xl = 1280;
 
-watch(innerWidth, (val) => {
-	if (val > xl) {
-		isTocBtnActive.value = false;
-	}
-});
+	watch(innerWidth, (val) => {
+		if (val > xl) {
+			isTocBtnActive.value = false;
+		}
+	});
 
-onUnmounted(() => {
-	handleResize.cancel();
-});
+	onUnmounted(() => {
+		handleResize.cancel();
+	});
+}
 </script>
 
 <template>
